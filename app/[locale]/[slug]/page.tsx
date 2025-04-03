@@ -86,6 +86,14 @@ export async function generateMetadata(
   const seoNoIndex = pageEntry?.fields?.seoMetadata?.fields?.noIndex || false;
   const seoNoFollow = pageEntry?.fields?.seoMetadata?.fields?.noFollow || false;
 
+  // Determine the metadata base URL (Vercel's URL or localhost for development)
+  const metadataBase = process.env.VERCEL_URL
+    ? new URL(`https://${process.env.VERCEL_URL}`)
+    : new URL(
+        process.env.NEXT_PUBLIC_SITE_URL ||
+          `http://localhost:${process.env.PORT || 3000}`
+      );
+
   return {
     title: seoTitle,
     description: seoDescription,
@@ -96,5 +104,6 @@ export async function generateMetadata(
       index: !seoNoIndex,
       follow: !seoNoFollow,
     },
+    metadataBase,
   };
 }
