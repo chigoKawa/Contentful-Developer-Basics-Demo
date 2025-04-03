@@ -38,7 +38,7 @@ const ContentfulLandingPage: FC<IProps> = ({ entry: publishedEntry }) => {
   const pageContent = entry?.fields?.sections;
 
   return (
-    <div>
+    <div className="w-full overflow-hidden">
       {/* Iterate over each content entry to dynamically render components */}
       {pageContent?.map(
         (componentEntry: ILandingPage["fields"]["sections"][0], index) => {

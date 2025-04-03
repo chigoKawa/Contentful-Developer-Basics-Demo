@@ -41,7 +41,8 @@ const BaseButtonWrapper = (entry: IBaseButton) => {
         buttonVariants({
           variant: _.lowerCase(variant) as "default", // Convert variant to lowercase for consistency
           size: sizeMap[size] as "default", // Map Contentful Entry size to Tailwind button size
-        })
+        }),
+        " whitespace-normal  break-words overflow-hidden"
       )}
     >
       {/* Render as a Next.js Link with proper target attribute */}
@@ -49,6 +50,7 @@ const BaseButtonWrapper = (entry: IBaseButton) => {
         {...inspectorProps({ fieldId: "label" })}
         href={targetUrl}
         target={openInNewTab ? "_blank" : "_self"}
+        className=" w-full h-full"
       >
         {label}
       </Link>

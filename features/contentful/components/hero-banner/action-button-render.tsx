@@ -8,7 +8,7 @@ interface IProps {
 
 const ActionButtonRender: FC<IProps> = ({ buttons }) => {
   return (
-    <div className="flex md:flex-row gap-6 ">
+    <div className="flex flex-col md:flex-row gap-6 ">
       {/* Loop through the buttons array and render each button using BaseButtonWrapper */}
       {buttons?.map((button, index) => (
         <BaseButtonWrapper key={`key-${index}`} {...button} />
