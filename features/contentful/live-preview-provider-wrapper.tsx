@@ -5,15 +5,17 @@ import { ContentfulLivePreviewProvider } from "@contentful/live-preview/react";
 const LivePreviewProviderWrapper = ({
   children,
   locale,
+  isPreviewEnabled,
 }: {
   children: ReactNode;
   locale: string;
+  isPreviewEnabled: boolean;
 }) => {
   return (
     <ContentfulLivePreviewProvider
       locale={locale}
-      enableInspectorMode={true}
-      enableLiveUpdates={true}
+      enableInspectorMode={isPreviewEnabled}
+      enableLiveUpdates={isPreviewEnabled}
     >
       {children}
     </ContentfulLivePreviewProvider>

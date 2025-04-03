@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { getI18nConfig, type Locale } from "@/i18n-config";
-import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
 
 // import "./globals.css";
 
@@ -23,14 +22,9 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: Locale; preview: string }>;
 }>) {
   const { locale } = await params;
-  return (
-    <div lang={locale}>
-      <LivePreviewProviderWrapper locale={locale}>
-        {children}
-      </LivePreviewProviderWrapper>
-    </div>
-  );
+
+  return <div lang={locale}>{children}</div>;
 }

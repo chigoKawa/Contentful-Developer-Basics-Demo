@@ -5,6 +5,7 @@ import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; 
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { extractContentfulAssetUrl } from "@/lib/utils";
+import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
 
 const INCLUDES_COUNT = 6;
 
@@ -41,7 +42,12 @@ export default async function IndexPage({ params, searchParams }: Props) {
   return (
     <div>
       {/* Render the landing page component with the fetched data */}
-      <ContentfulLandingPage entry={pageEntry} />
+      <LivePreviewProviderWrapper
+        locale={locale}
+        isPreviewEnabled={!!isPreviewEnabled}
+      >
+        <ContentfulLandingPage entry={pageEntry} />
+      </LivePreviewProviderWrapper>
     </div>
   );
 }

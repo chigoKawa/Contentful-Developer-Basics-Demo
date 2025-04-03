@@ -8,6 +8,7 @@ import {
 } from "@/features/contentful/type";
 import ContentfulBlogPage from "@/features/contentful/components/contentful-blog-page";
 import { extractContentfulAssetUrl } from "@/lib/utils";
+import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
 
 const INCLUDES_COUNT = 6;
 
@@ -44,7 +45,12 @@ export default async function IndexPage({ params, searchParams }: Props) {
   return (
     <div>
       {/* Render the blog page component with the fetched data */}
-      <ContentfulBlogPage entry={blogEntry} />
+      <LivePreviewProviderWrapper
+        locale={locale}
+        isPreviewEnabled={!!isPreviewEnabled}
+      >
+        <ContentfulBlogPage entry={blogEntry} />
+      </LivePreviewProviderWrapper>
     </div>
   );
 }

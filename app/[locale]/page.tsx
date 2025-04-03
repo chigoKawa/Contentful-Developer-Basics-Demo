@@ -5,9 +5,10 @@ import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; 
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { extractContentfulAssetUrl } from "@/lib/utils";
+import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
 
 // Get the homepage slug from environment variables
-const PAGE_SLUG = process.env.NEXT_PUBLIC_HOMEPAGE_SLUG!;
+const PAGE_SLUG = process.env.NEXT_PUBLIC_HOMEPAGE_SLUG! || "home";
 const INCLUDES_COUNT = 6;
 
 type Props = {
@@ -17,8 +18,9 @@ type Props = {
   // searchParams: { preview?: string };
 };
 
-export default async function IndexPage({ params }: Props) {
+export default async function IndexPage({ params, searchParams }: Props) {
   const { locale } = await params;
+  const { preview: isPreviewEnabled } = await searchParams;
 
   // Fetch landing page data from Contentful based on the slug and locale
   const entries = await getEntries<LandingPageSkeleton>({
@@ -37,7 +39,12 @@ export default async function IndexPage({ params }: Props) {
   return (
     <div>
       {/* Render the landing page component with the fetched data */}
-      <ContentfulLandingPage entry={pageEntry} />
+      <LivePreviewProviderWrapper
+        locale={locale}
+        isPreviewEnabled={!!isPreviewEnabled}
+      >
+        <ContentfulLandingPage entry={pageEntry} />
+      </LivePreviewProviderWrapper>
     </div>
   );
 }
