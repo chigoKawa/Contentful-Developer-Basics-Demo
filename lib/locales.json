@@ -1,0 +1,46 @@
+[
+  {
+    "code": "en-US",
+    "name": "English (United States)",
+    "default": true,
+    "fallbackCode": null,
+    "sys": {
+      "id": "6XGQUuoQnCMSwTX3wUqlvT",
+      "type": "Locale",
+      "version": 1
+    }
+  },
+  {
+    "code": "de",
+    "name": "German",
+    "default": false,
+    "fallbackCode": "en-US",
+    "sys": {
+      "id": "7wggIpb6Bm7J059sM4eAE2",
+      "type": "Locale",
+      "version": 1
+    }
+  },
+  {
+    "code": "ar",
+    "name": "Arabic",
+    "default": false,
+    "fallbackCode": "en-US",
+    "sys": {
+      "id": "0bFZxQwSOVotVXSZktMXYm",
+      "type": "Locale",
+      "version": 2
+    }
+  },
+  {
+    "code": "es",
+    "name": "Spanish",
+    "default": false,
+    "fallbackCode": "en-US",
+    "sys": {
+      "id": "0Le1oP4hQl94xT1Xv0FrJE",
+      "type": "Locale",
+      "version": 1
+    }
+  }
+]

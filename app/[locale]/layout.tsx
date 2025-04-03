@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 
-import { Geist, Geist_Mono } from "next/font/google";
-import NavBar from "@/features/layout/nav-bar";
 import { getI18nConfig, type Locale } from "@/i18n-config";
-import Footer from "@/features/layout/footer";
-import { Toaster } from "@/components/ui/sonner";
+import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
 
-import "./globals.css";
+// import "./globals.css";
 
 export const generateStaticParams = async () => {
   const { locales } = await getI18nConfig();
@@ -15,15 +12,6 @@ export const generateStaticParams = async () => {
     locale: locale,
   }));
 };
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Contentful Example",
@@ -39,15 +27,10 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   return (
-    <html lang={locale}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar />
+    <div lang={locale}>
+      <LivePreviewProviderWrapper locale={locale}>
         {children}
-        <Toaster />
-        <Footer />
-      </body>
-    </html>
+      </LivePreviewProviderWrapper>
+    </div>
   );
 }
