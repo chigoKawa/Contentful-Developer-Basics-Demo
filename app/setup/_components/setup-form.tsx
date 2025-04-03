@@ -44,7 +44,7 @@ CONTENTFUL_PREVIEW_SECRET='a-preview-secret'
 NEXT_PUBLIC_CTF_STUDIO_EXPERIENCE_TYPE_ID="experiencePage"
 NEXT_PUBLIC_CTF_HOMEPAGE_SLUG="home"`;
 
-const VERCE_DEPLOY_LINK = `https://vercel.com/import/project?template=https://github.com/chigoKawa/Contentful-Developer-Basics-Demo&env=NEXT_PUBLIC_CTF_SPACE_ID,NEXT_PUBLIC_CTF_DELIVERY_TOKEN,NEXT_PUBLIC_CTF_PREVIEW_TOKEN,NEXT_PUBLIC_CTF_ENVIRONMENT,CONTENTFUL_PREVIEW_SECRET`;
+const VERCE_DEPLOY_LINK = `https://vercel.com/new/clone?repository-url=https://github.com/chigoKawa/Contentful-Developer-Basics-Demo&env=NEXT_PUBLIC_CTF_SPACE_ID,NEXT_PUBLIC_CTF_DELIVERY_TOKEN,NEXT_PUBLIC_CTF_PREVIEW_TOKEN,NEXT_PUBLIC_CTF_PREVIEW_SECRET,NEXT_PUBLIC_CTF_ENVIRONMENT`;
 
 // Define the form schema with validation
 const formSchema = z.object({
