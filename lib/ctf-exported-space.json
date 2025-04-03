@@ -639,7 +639,7 @@
         "id": "seo",
         "type": "ContentType",
         "createdAt": "2025-03-14T15:45:40.661Z",
-        "updatedAt": "2025-03-17T16:10:01.833Z",
+        "updatedAt": "2025-04-03T13:48:05.423Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -647,8 +647,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 7,
-        "publishedAt": "2025-03-17T16:10:01.833Z",
+        "publishedVersion": 9,
+        "publishedAt": "2025-04-03T13:48:05.423Z",
         "firstPublishedAt": "2025-03-14T15:45:40.981Z",
         "createdBy": {
           "sys": {
@@ -664,8 +664,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 4,
-        "version": 8,
+        "publishedCounter": 5,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -707,9 +707,6 @@
               }
             }
           ],
-          "defaultValue": {
-            "en-US": "CHIGORIDDIM | "
-          },
           "disabled": false,
           "omitted": false
         },
@@ -2050,7 +2047,7 @@
         "id": "blogPost",
         "type": "ContentType",
         "createdAt": "2025-03-14T15:45:48.844Z",
-        "updatedAt": "2025-03-25T14:58:34.026Z",
+        "updatedAt": "2025-04-03T13:47:03.553Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -2058,8 +2055,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 17,
-        "publishedAt": "2025-03-25T14:58:34.026Z",
+        "publishedVersion": 19,
+        "publishedAt": "2025-04-03T13:47:03.553Z",
         "firstPublishedAt": "2025-03-14T15:45:49.213Z",
         "createdBy": {
           "sys": {
@@ -2075,8 +2072,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 9,
-        "version": 18,
+        "publishedCounter": 10,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2295,6 +2292,23 @@
           ],
           "disabled": false,
           "omitted": false
+        },
+        {
+          "id": "seoMetadata",
+          "name": "SEO Metadata",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "seo"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
         }
       ]
     },
@@ -3021,7 +3035,7 @@
             "linkType": "Space"
           }
         },
-        "version": 8,
+        "version": 10,
         "createdAt": "2025-03-14T15:45:41.145Z",
         "createdBy": {
           "sys": {
@@ -3030,7 +3044,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-03-17T16:10:02.470Z",
+        "updatedAt": "2025-04-03T13:48:06.246Z",
         "updatedBy": {
           "sys": {
             "id": "0LxJB4LBv007oHgJD7WvJN",
@@ -3688,7 +3702,7 @@
             "linkType": "Space"
           }
         },
-        "version": 18,
+        "version": 20,
         "createdAt": "2025-03-14T15:45:49.377Z",
         "createdBy": {
           "sys": {
@@ -3697,7 +3711,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-03-25T14:58:34.584Z",
+        "updatedAt": "2025-04-03T13:47:04.330Z",
         "updatedBy": {
           "sys": {
             "id": "0LxJB4LBv007oHgJD7WvJN",
@@ -3762,6 +3776,11 @@
         {
           "fieldId": "body",
           "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "seoMetadata",
+          "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -4281,7 +4300,7 @@
         "id": "1WcOXsT4ygBXV6kPKZuHEU",
         "type": "Entry",
         "createdAt": "2025-03-14T15:46:35.131Z",
-        "updatedAt": "2025-03-28T11:07:46.866Z",
+        "updatedAt": "2025-04-03T20:17:25.149Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4289,8 +4308,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 24,
-        "publishedAt": "2025-03-25T14:54:41.142Z",
+        "publishedVersion": 31,
+        "publishedAt": "2025-04-03T20:17:25.149Z",
         "firstPublishedAt": "2025-03-14T15:47:04.421Z",
         "createdBy": {
           "sys": {
@@ -4306,8 +4325,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 9,
-        "version": 31,
+        "publishedCounter": 10,
+        "version": 32,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -4319,7 +4338,7 @@
           "*": {
             "ar": "published",
             "de": "published",
-            "en-US": "changed",
+            "en-US": "published",
             "es": "published"
           }
         },
@@ -4704,7 +4723,7 @@
         "id": "5gfE8H5RjQpuouy1rl8Uq2",
         "type": "Entry",
         "createdAt": "2025-03-14T15:46:36.451Z",
-        "updatedAt": "2025-03-18T17:34:24.720Z",
+        "updatedAt": "2025-04-03T13:40:55.697Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -4712,8 +4731,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2025-03-18T17:34:24.720Z",
+        "publishedVersion": 12,
+        "publishedAt": "2025-04-03T13:40:55.697Z",
         "firstPublishedAt": "2025-03-14T15:47:07.631Z",
         "createdBy": {
           "sys": {
@@ -4729,8 +4748,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 5,
+        "version": 13,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -4762,10 +4781,19 @@
           "en-US": "SEO / Welcome Page"
         },
         "title": {
-          "en-US": "CHIGORIDDIM | Welcome"
+          "en-US": "Welcome | CHI COFFEE "
         },
         "description": {
           "en-US": "Welcome to my mini website. This website is powered by Contentful"
+        },
+        "ogImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "01croaWjoXnOs1vUVxOsDE"
+            }
+          }
         },
         "noindex": {
           "en-US": false
@@ -8829,92 +8857,6 @@
             "id": "m5vihs7hhhu6"
           }
         },
-        "id": "2ecoGBGb3R1iEY2GUlSGS1",
-        "type": "Entry",
-        "createdAt": "2025-03-14T15:46:49.253Z",
-        "updatedAt": "2025-03-14T15:47:36.002Z",
-        "environment": {
-          "sys": {
-            "id": "master",
-            "type": "Link",
-            "linkType": "Environment"
-          }
-        },
-        "publishedVersion": 2,
-        "publishedAt": "2025-03-14T15:47:36.002Z",
-        "firstPublishedAt": "2025-03-14T15:47:36.002Z",
-        "createdBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "updatedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "publishedCounter": 1,
-        "version": 3,
-        "publishedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "fieldStatus": {
-          "*": {
-            "en-US": "published"
-          }
-        },
-        "automationTags": [
-        ],
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "seo"
-          }
-        },
-        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/entries/2ecoGBGb3R1iEY2GUlSGS1"
-      },
-      "fields": {
-        "internalTitle": {
-          "en-US": "SEO | About Me"
-        },
-        "title": {
-          "en-US": "CHIGORIDDIM | Tech Enthusiast, Developer, and Innovator"
-        },
-        "description": {
-          "en-US": "Tech enthusiast passionate about software development, hardware tinkering, and the latest technology trends. Always eager to learn and share knowledge."
-        },
-        "noindex": {
-          "en-US": false
-        },
-        "nofollow": {
-          "en-US": false
-        }
-      }
-    },
-    {
-      "metadata": {
-        "tags": [
-        ],
-        "concepts": [
-        ]
-      },
-      "sys": {
-        "space": {
-          "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "m5vihs7hhhu6"
-          }
-        },
         "id": "9PUVIBaCSm2idI9Ovx2uk",
         "type": "Entry",
         "createdAt": "2025-03-14T15:46:49.548Z",
@@ -9410,7 +9352,7 @@
         "id": "5yrdAgNdpOPtfwPi6vNZSW",
         "type": "Entry",
         "createdAt": "2025-03-14T15:46:51.080Z",
-        "updatedAt": "2025-03-14T15:47:40.246Z",
+        "updatedAt": "2025-04-03T13:42:13.915Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -9418,8 +9360,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2025-03-14T15:47:40.246Z",
+        "publishedVersion": 4,
+        "publishedAt": "2025-04-03T13:42:13.915Z",
         "firstPublishedAt": "2025-03-14T15:47:40.246Z",
         "createdBy": {
           "sys": {
@@ -9435,8 +9377,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 5,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -9465,7 +9407,7 @@
           "en-US": "SEO / Portfolio"
         },
         "title": {
-          "en-US": "CHIGORIDDIM | Showcasing Innovation and Expertise "
+          "en-US": "Showcasing Innovation and Expertise | CHI COFFEE"
         },
         "description": {
           "en-US": "Explore [Your Name]'s tech portfolio featuring innovative projects and expertise in software development and hardware engineering. Discover my journey in tech."
@@ -10264,92 +10206,6 @@
             "id": "m5vihs7hhhu6"
           }
         },
-        "id": "7nqhTafgLz5Lbkyohtkc6C",
-        "type": "Entry",
-        "createdAt": "2025-03-14T15:46:55.083Z",
-        "updatedAt": "2025-03-14T15:47:48.277Z",
-        "environment": {
-          "sys": {
-            "id": "master",
-            "type": "Link",
-            "linkType": "Environment"
-          }
-        },
-        "publishedVersion": 2,
-        "publishedAt": "2025-03-14T15:47:48.277Z",
-        "firstPublishedAt": "2025-03-14T15:47:48.277Z",
-        "createdBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "updatedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "publishedCounter": 1,
-        "version": 3,
-        "publishedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "fieldStatus": {
-          "*": {
-            "en-US": "published"
-          }
-        },
-        "automationTags": [
-        ],
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "seo"
-          }
-        },
-        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/entries/7nqhTafgLz5Lbkyohtkc6C"
-      },
-      "fields": {
-        "internalTitle": {
-          "en-US": "SEO / Category / Nature"
-        },
-        "title": {
-          "en-US": "CHIGORIDDIM | Nature"
-        },
-        "description": {
-          "en-US": "All about nature"
-        },
-        "noindex": {
-          "en-US": false
-        },
-        "nofollow": {
-          "en-US": false
-        }
-      }
-    },
-    {
-      "metadata": {
-        "tags": [
-        ],
-        "concepts": [
-        ]
-      },
-      "sys": {
-        "space": {
-          "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "m5vihs7hhhu6"
-          }
-        },
         "id": "1RI93fVFy4Yk57qWqe1QAF",
         "type": "Entry",
         "createdAt": "2025-03-14T15:46:55.370Z",
@@ -10460,7 +10316,7 @@
         "id": "27e8SilCY8SPSz0O8IkuWR",
         "type": "Entry",
         "createdAt": "2025-03-14T15:46:55.718Z",
-        "updatedAt": "2025-03-14T15:47:49.971Z",
+        "updatedAt": "2025-04-03T13:41:53.751Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -10468,8 +10324,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 2,
-        "publishedAt": "2025-03-14T15:47:49.971Z",
+        "publishedVersion": 5,
+        "publishedAt": "2025-04-03T13:41:53.751Z",
         "firstPublishedAt": "2025-03-14T15:47:49.971Z",
         "createdBy": {
           "sys": {
@@ -10485,8 +10341,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 1,
-        "version": 3,
+        "publishedCounter": 2,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -10515,7 +10371,7 @@
           "en-US": "SEO / Blog / When Skies Run Dry: Africa's Dance with Rain "
         },
         "title": {
-          "en-US": "CHIGORIDDIM | When Skies Run Dry: Africa's Dance with Rain "
+          "en-US": "When Skies Run Dry: Africa's Dance with Rain | CHI COFFEE "
         },
         "description": {
           "en-US": "From rituals to cloud seeding, explore Africa's fight for life-giving rain & the enduring hope for a wet future"
@@ -12279,92 +12135,6 @@
           "en-US": false
         },
         "enableBlur": {
-          "en-US": false
-        }
-      }
-    },
-    {
-      "metadata": {
-        "tags": [
-        ],
-        "concepts": [
-        ]
-      },
-      "sys": {
-        "space": {
-          "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "m5vihs7hhhu6"
-          }
-        },
-        "id": "5RjMqb5KQBTA5dWcXvmmQV",
-        "type": "Entry",
-        "createdAt": "2025-03-14T15:47:00.808Z",
-        "updatedAt": "2025-03-14T15:48:01.069Z",
-        "environment": {
-          "sys": {
-            "id": "master",
-            "type": "Link",
-            "linkType": "Environment"
-          }
-        },
-        "publishedVersion": 2,
-        "publishedAt": "2025-03-14T15:48:01.069Z",
-        "firstPublishedAt": "2025-03-14T15:48:01.069Z",
-        "createdBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "updatedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "publishedCounter": 1,
-        "version": 3,
-        "publishedBy": {
-          "sys": {
-            "type": "Link",
-            "linkType": "User",
-            "id": "0LxJB4LBv007oHgJD7WvJN"
-          }
-        },
-        "fieldStatus": {
-          "*": {
-            "en-US": "published"
-          }
-        },
-        "automationTags": [
-        ],
-        "contentType": {
-          "sys": {
-            "type": "Link",
-            "linkType": "ContentType",
-            "id": "seo"
-          }
-        },
-        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/entries/5RjMqb5KQBTA5dWcXvmmQV"
-      },
-      "fields": {
-        "internalTitle": {
-          "en-US": "SEO / Contentful"
-        },
-        "title": {
-          "en-US": "CHIGORIDDIM | Contentful is a powerful composable content platform"
-        },
-        "description": {
-          "en-US": "Contentful is a powerful composable content platform"
-        },
-        "noindex": {
-          "en-US": false
-        },
-        "nofollow": {
           "en-US": false
         }
       }
@@ -15946,7 +15716,7 @@
         "id": "1ZQ8ItdDvZ0otXAXxNiStt",
         "type": "Entry",
         "createdAt": "2025-03-25T13:01:29.210Z",
-        "updatedAt": "2025-03-25T14:58:44.970Z",
+        "updatedAt": "2025-04-03T13:53:48.045Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -15954,8 +15724,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 20,
-        "publishedAt": "2025-03-25T14:58:44.970Z",
+        "publishedVersion": 23,
+        "publishedAt": "2025-04-03T13:53:48.045Z",
         "firstPublishedAt": "2025-03-25T13:09:29.332Z",
         "createdBy": {
           "sys": {
@@ -15971,8 +15741,8 @@
             "id": "0LxJB4LBv007oHgJD7WvJN"
           }
         },
-        "publishedCounter": 3,
-        "version": 21,
+        "publishedCounter": 5,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -16029,12 +15799,10 @@
         },
         "body": {
           "en-US": {
-            "nodeType": "document",
             "data": {
             },
             "content": [
               {
-                "nodeType": "embedded-asset-block",
                 "data": {
                   "target": {
                     "sys": {
@@ -16045,1044 +15813,1150 @@
                   }
                 },
                 "content": [
-                ]
+                ],
+                "nodeType": "embedded-asset-block"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "This project is a simple Next.js example that uses Contentful as a CMS. The project utilizes Next.js Internationalization (i18n) as a UI library, and the content for the pages will be fetched from Contentful.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Let’s go over a few key concepts:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Contentful:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Contentful is a powerful content management platform with an intuitive user interface that allows content managers to create and manage content. It also provides robust APIs for developers to retrieve content and render it in the frontend. Developers create components in the frontend to display the content to end-users.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Next.js:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Next.js is a full-stack React framework that simplifies React development. Developers can use Next.js to create component-driven websites that are highly performant.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Localization and Internationalization:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "unordered-list",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
                             "value": "Localization (L10n)",
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": ": This is the process of showing content to users based on their region. A common use case is writing content in a default language and then translating it into other languages. Locale refers to a language variant specific to a region. For example, German is spoken in both Germany and Austria, but these would have different locales: ",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "code"
+                              }
+                            ],
                             "value": "de",
-                            "marks": [
-                              {
-                                "type": "code"
-                              }
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": " for Germany and ",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
-                            "value": "de-AT",
+                            "data": {
+                            },
                             "marks": [
                               {
                                 "type": "code"
                               }
                             ],
-                            "data": {
-                            }
+                            "value": "de-AT",
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
-                            "value": " for Austria.",
+                            "data": {
+                            },
                             "marks": [
                             ],
-                            "data": {
-                            }
+                            "value": " for Austria.",
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
-                            "value": "Internationalization (i18n)",
+                            "data": {
+                            },
                             "marks": [
                               {
                                 "type": "bold"
                               }
                             ],
-                            "data": {
-                            }
+                            "value": "Internationalization (i18n)",
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": ": This is the process of ensuring that a website is ready to be consumed across multiple countries and regions. It involves detecting a user’s preferred language automatically in the frontend and using that information to fetch localized content from the content platform.",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   }
-                ]
+                ],
+                "nodeType": "unordered-list"
               },
               {
-                "nodeType": "heading-3",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Content Types and Components:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "When building websites, you will create pages, and each page will have components. For example, a hero banner component might display a headline, some body text, and a button or two. You can easily search for \"hero banner component\" online for more context.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "When working with a content platform like Contentful, we need to create a page and then add components inside that page. For the hero banner component, we would create a content type for the page and a content type for the hero banner. Then, we link them together. This process is repeated for other components.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Content modeling is an art in itself, and Contentful’s learning center has a lot of training and even live sessions on this topic. Feel free to check that out.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "For this project, I’ll focus on four content types that I’ve created:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "ordered-list",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": "Landing Page Content Type",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": "CTA Content Type",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": "Hero Banner Content Type",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
-                            "value": "Base Button Content Type",
+                            "data": {
+                            },
                             "marks": [
                             ],
-                            "data": {
-                            }
+                            "value": "Base Button Content Type",
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   }
-                ]
+                ],
+                "nodeType": "ordered-list"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "With these, I can create a page with a few content entries representing a hero banner and a CTA.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Frontend Content Rendering:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "After content modeling and creating the content, I need to make API calls to Contentful to retrieve the content and render it. To do that, I need API keys, which I can get in Contentful under ",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "After content modeling and creating the content, I need to make API calls to Contentful to retrieve the content and render it. To do that, I need API keys, which I can get in Contentful under ",
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
-                    "value": "Settings > API Keys",
+                    "data": {
+                    },
                     "marks": [
                       {
                         "type": "bold"
                       }
                     ],
-                    "data": {
-                    }
+                    "value": "Settings > API Keys",
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
-                    "value": ".",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": ".",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "Since I’m using Next.js, I have to follow some patterns specific to it. You can read more about Next.js ",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "Since I’m using Next.js, I have to follow some patterns specific to it. You can read more about Next.js ",
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "hyperlink",
                     "data": {
                       "uri": "https://nextjs.org/docs/app"
                     },
                     "content": [
                       {
-                        "nodeType": "text",
-                        "value": "here",
+                        "data": {
+                        },
                         "marks": [
                         ],
-                        "data": {
-                        }
+                        "value": "here",
+                        "nodeType": "text"
                       }
-                    ]
+                    ],
+                    "nodeType": "hyperlink"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": ".",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Next.js uses file-based routing, so if I want to have a few pages on my website, each page will have an ID that I can use in the URL. For example, let’s say my website is ",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
                     "value": "www.chigoriddim.com",
-                    "marks": [
-                      {
-                        "type": "code"
-                      }
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": ", and I want three pages: the homepage, the about page, and the contact page. I’ll create a dynamic route in Next.js using a field property (e.g., “slug”) from my page content type as a unique ID.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Contentful has a built-in slug generator, which makes it easy to set this up in the landing page content type. In Next.js, I define a dynamic route using the slug as the ID so that I can go to Contentful and fetch the content for any page based on the provided slug.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "So, my pages would look like this:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "unordered-list",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
-                            "value": "www.chigoriddim.com/about",
+                            "data": {
+                            },
                             "marks": [
                               {
                                 "type": "code"
                               }
                             ],
-                            "data": {
-                            }
+                            "value": "www.chigoriddim.com/about",
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "code"
+                              }
+                            ],
                             "value": "www.chigoriddim.com/contact",
-                            "marks": [
-                              {
-                                "type": "code"
-                              }
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": "The homepage",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   }
-                ]
+                ],
+                "nodeType": "unordered-list"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "But there’s more to it. I also want to internationalize my site, so I’ll have different locales for the pages. For example, the about page would look like:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "unordered-list",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "code"
+                              }
+                            ],
                             "value": "www.chigoriddim.com/about",
-                            "marks": [
-                              {
-                                "type": "code"
-                              }
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": " for the default English locale",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "code"
+                              }
+                            ],
                             "value": "www.chigoriddim.com/de/about",
-                            "marks": [
-                              {
-                                "type": "code"
-                              }
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": " for German",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
-                            "value": "www.chigoriddim.com/es/about",
+                            "data": {
+                            },
                             "marks": [
                               {
                                 "type": "code"
                               }
                             ],
-                            "data": {
-                            }
+                            "value": "www.chigoriddim.com/es/about",
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                            ],
                             "value": " for Spanish",
-                            "marks": [
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   }
-                ]
+                ],
+                "nodeType": "unordered-list"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "To implement this, I create a dynamic route using “locale” as the unique ID for each route. When a user visits the site, I need to either automatically redirect them to the correct locale or allow them to pick their language, or even do both.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Most internationalized websites have a locale/language switcher, usually located in the footer. We can implement that as well.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "I won’t go into the details of the implementation here, but this is done using Next.js middleware, where I can intercept requests and redirect them to the appropriate locale.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "For landing pages like ",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
                     "value": "www.chigoriddim.com/about",
-                    "marks": [
-                      {
-                        "type": "code"
-                      }
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": ", the file ",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
                     "value": "/app/[locale]/[slug]/page.tsx",
-                    "marks": [
-                      {
-                        "type": "code"
-                      }
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": " is responsible for rendering the page. I need to retrieve the locale and the slug (e.g., locale: “de”, slug: “about”) and use that to request content from Contentful.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "heading-3",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "Contentful Client:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "heading-3"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "To communicate with Contentful from the frontend, I need to install the JavaScript Contentful client library. I can then create a client. Contentful has two key APIs for content retrieval:",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "unordered-list",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
-                            "value": "The ",
+                            "data": {
+                            },
                             "marks": [
                             ],
-                            "data": {
-                            }
+                            "value": "The ",
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
+                            "data": {
+                            },
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
                             "value": "Delivery API",
-                            "marks": [
-                              {
-                                "type": "bold"
-                              }
-                            ],
-                            "data": {
-                            }
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
-                            "value": ", which fetches all published content",
+                            "data": {
+                            },
                             "marks": [
                             ],
-                            "data": {
-                            }
+                            "value": ", which fetches all published content",
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   },
                   {
-                    "nodeType": "list-item",
                     "data": {
                     },
                     "content": [
                       {
-                        "nodeType": "paragraph",
                         "data": {
                         },
                         "content": [
                           {
-                            "nodeType": "text",
-                            "value": "The ",
+                            "data": {
+                            },
                             "marks": [
                             ],
-                            "data": {
-                            }
+                            "value": "The ",
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
-                            "value": "Preview API",
+                            "data": {
+                            },
                             "marks": [
                               {
                                 "type": "bold"
                               }
                             ],
-                            "data": {
-                            }
+                            "value": "Preview API",
+                            "nodeType": "text"
                           },
                           {
-                            "nodeType": "text",
-                            "value": ", which can fetch both published and unpublished content (more on the preview later)",
+                            "data": {
+                            },
                             "marks": [
                             ],
-                            "data": {
-                            }
+                            "value": ", which can fetch both published and unpublished content (more on the preview later)",
+                            "nodeType": "text"
                           }
-                        ]
+                        ],
+                        "nodeType": "paragraph"
                       }
-                    ]
+                    ],
+                    "nodeType": "list-item"
                   }
-                ]
+                ],
+                "nodeType": "unordered-list"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
+                    "data": {
+                    },
+                    "marks": [
+                    ],
                     "value": "I can create two client instances—one for delivery and one for preview—by passing the respective API keys to each.",
-                    "marks": [
-                    ],
-                    "data": {
-                    }
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "Contentful's JavaScript client library has a method called ",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "Contentful's JavaScript client library has a method called ",
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
-                    "value": "getEntries",
+                    "data": {
+                    },
                     "marks": [
                       {
                         "type": "code"
                       }
                     ],
-                    "data": {
-                    }
+                    "value": "getEntries",
+                    "nodeType": "text"
                   },
                   {
-                    "nodeType": "text",
-                    "value": ", which retrieves content entries. This method can accept some options, like passing the slug and an include count to retrieve related content in a single query.",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": ", which retrieves content entries. This method can accept some options, like passing the slug and an include count to retrieve related content in a single query.",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               },
               {
-                "nodeType": "paragraph",
                 "data": {
                 },
                 "content": [
                   {
-                    "nodeType": "text",
-                    "value": "The data I get back from Contentful can then be rendered in the frontend.",
+                    "data": {
+                    },
                     "marks": [
                     ],
-                    "data": {
-                    }
+                    "value": "The data I get back from Contentful can then be rendered in the frontend.",
+                    "nodeType": "text"
                   }
-                ]
+                ],
+                "nodeType": "paragraph"
               }
-            ]
+            ],
+            "nodeType": "document"
           }
+        },
+        "seoMetadata": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3JsTSA0dEAIHNh5kgxYj3o"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "3JsTSA0dEAIHNh5kgxYj3o",
+        "type": "Entry",
+        "createdAt": "2025-04-03T13:47:35.154Z",
+        "updatedAt": "2025-04-03T13:49:37.535Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2025-04-03T13:49:37.535Z",
+        "firstPublishedAt": "2025-04-03T13:49:37.535Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "seo"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/entries/3JsTSA0dEAIHNh5kgxYj3o"
+      },
+      "fields": {
+        "internalTitle": {
+          "en-US": "SEO / BLOG / Contentful Developer Basics"
+        },
+        "title": {
+          "en-US": "Contentful Developer Basics | CHI COFFEE"
+        },
+        "description": {
+          "en-US": "This project is a simple Next.js example that uses Contentful as a CMS"
+        },
+        "ogImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6k4StgqzhmexdWgsw8DHf9"
+            }
+          }
+        },
+        "noindex": {
+          "en-US": false
+        },
+        "nofollow": {
+          "en-US": false
         }
       }
     }
@@ -18579,6 +18453,583 @@
           }
         }
       }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "6wUYCufQybX8aBtPqjZusP",
+        "type": "Asset",
+        "createdAt": "2025-04-03T19:49:52.548Z",
+        "updatedAt": "2025-04-03T19:50:24.047Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-04-03T19:50:24.047Z",
+        "firstPublishedAt": "2025-04-03T19:50:24.047Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/6wUYCufQybX8aBtPqjZusP"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 1 / Setting up Vercel Deploy Hook"
+        },
+        "description": {
+          "en-US": "Step 1 / Setting up Vercel Deploy Hook"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/6wUYCufQybX8aBtPqjZusP/48b98cf35563bfe88f6935013560191e/image.png",
+            "details": {
+              "size": 112862,
+              "image": {
+                "width": 1312,
+                "height": 792
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "5rdC3wBcheJSslQ6OW8dkv",
+        "type": "Asset",
+        "createdAt": "2025-04-03T19:51:16.401Z",
+        "updatedAt": "2025-04-03T19:51:51.089Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2025-04-03T19:51:51.089Z",
+        "firstPublishedAt": "2025-04-03T19:51:51.089Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/5rdC3wBcheJSslQ6OW8dkv"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 2 / Setting up Vercel deploy hook"
+        },
+        "description": {
+          "en-US": "Step 2 / Setting up Vercel deploy hook"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/5rdC3wBcheJSslQ6OW8dkv/d80c2475fffd1692bd0b6935c9f4b229/image.png",
+            "details": {
+              "size": 31756,
+              "image": {
+                "width": 982,
+                "height": 317
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "6iVDte9XrhYGpsilKoGg0",
+        "type": "Asset",
+        "createdAt": "2025-04-03T19:53:06.378Z",
+        "updatedAt": "2025-04-03T20:12:28.936Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2025-04-03T20:12:28.936Z",
+        "firstPublishedAt": "2025-04-03T19:53:42.666Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/6iVDte9XrhYGpsilKoGg0"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 3 / Setting up Vercel deploy hook"
+        },
+        "description": {
+          "en-US": "Step 3 / Setting up Vercel deploy hook | copy the generated hook"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/6iVDte9XrhYGpsilKoGg0/6fc77170127538720219be259a4212bd/image.png",
+            "details": {
+              "size": 37720,
+              "image": {
+                "width": 936,
+                "height": 353
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "6GsfgEaU3gGsUWndD2vns3",
+        "type": "Asset",
+        "createdAt": "2025-04-03T19:54:40.490Z",
+        "updatedAt": "2025-04-03T19:55:29.161Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2025-04-03T19:55:29.161Z",
+        "firstPublishedAt": "2025-04-03T19:55:29.161Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/6GsfgEaU3gGsUWndD2vns3"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 1 / Setting up Webhook for Vercel"
+        },
+        "description": {
+          "en-US": "Step 1 / Setting up Webhook for Vercel | go to settings > Webhooks"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/6GsfgEaU3gGsUWndD2vns3/0ddf07930061c2d18771d0cc02b2a0fa/image.png",
+            "details": {
+              "size": 79069,
+              "image": {
+                "width": 590,
+                "height": 633
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "6yAdcZX8dJIkEIPXbxqZP1",
+        "type": "Asset",
+        "createdAt": "2025-04-03T19:56:04.775Z",
+        "updatedAt": "2025-04-03T19:56:47.433Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 10,
+        "publishedAt": "2025-04-03T19:56:47.433Z",
+        "firstPublishedAt": "2025-04-03T19:56:43.571Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 11,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "ar": "published",
+            "de": "published",
+            "en-US": "published",
+            "es": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/6yAdcZX8dJIkEIPXbxqZP1"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 2 / Setting up Webhook for Vercel"
+        },
+        "description": {
+          "en-US": "Step 2 / Setting up Webhook for Vercel | select templates > Vercel"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/6yAdcZX8dJIkEIPXbxqZP1/02e30b4d4ea97776319a708a85f51e90/image.png",
+            "details": {
+              "size": 105466,
+              "image": {
+                "width": 1067,
+                "height": 766
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "5ErHpnKIEL6L9kSRwWfkot",
+        "type": "Asset",
+        "createdAt": "2025-04-03T19:57:50.158Z",
+        "updatedAt": "2025-04-03T19:58:29.667Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-04-03T19:58:29.667Z",
+        "firstPublishedAt": "2025-04-03T19:58:29.667Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/5ErHpnKIEL6L9kSRwWfkot"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 3 / Setting up Webhook for Vercel"
+        },
+        "description": {
+          "en-US": "Step 3 / Setting up Webhook for Vercel | paste your deploy token"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/5ErHpnKIEL6L9kSRwWfkot/120d53d48ad4453f094a3ad2872c67ce/image.png",
+            "details": {
+              "size": 55991,
+              "image": {
+                "width": 713,
+                "height": 429
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "id": "4HVTYjW7itWJu2i5YEk8i1",
+        "type": "Asset",
+        "createdAt": "2025-04-03T20:00:34.787Z",
+        "updatedAt": "2025-04-03T20:13:51.424Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2025-04-03T20:01:15.242Z",
+        "firstPublishedAt": "2025-04-03T20:01:15.242Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "changed"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/m5vihs7hhhu6/environments/master/assets/4HVTYjW7itWJu2i5YEk8i1"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Step 4 / Setting up Webhook for Vercel"
+        },
+        "description": {
+          "en-US": "Step 4 / Setting up Webhook for Vercel | configure webhook and save"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/m5vihs7hhhu6/4HVTYjW7itWJu2i5YEk8i1/5ba9f9e27003fd6d151af96acc26d2e7/image.png",
+            "details": {
+              "size": 139816,
+              "image": {
+                "width": 1658,
+                "height": 772
+              }
+            },
+            "fileName": "image.png",
+            "contentType": "image/png"
+          }
+        }
+      }
     }
   ],
   "locales": [
@@ -18764,6 +19215,60 @@
     }
   ],
   "webhooks": [
+    {
+      "name": "Vercel - Deploy a site",
+      "url": "https://api.vercel.com/v1/integrations/deploy/prj_RTS6Bslc6u8iIGRf6BKScTK0NrRV/IXGA6XzWW4",
+      "httpBasicUsername": null,
+      "topics": [
+        "Entry.*",
+        "Asset.publish",
+        "Asset.unpublish"
+      ],
+      "filters": [
+        {
+          "equals": [
+            {
+              "doc": "sys.environment.sys.id"
+            },
+            "master"
+          ]
+        }
+      ],
+      "transformation": {
+        "contentType": "application/json"
+      },
+      "active": true,
+      "sys": {
+        "type": "WebhookDefinition",
+        "id": "7BVjLpuxRDlkObrFSVxWgF",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "m5vihs7hhhu6"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "createdAt": "2025-04-03T19:58:46Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0LxJB4LBv007oHgJD7WvJN"
+          }
+        },
+        "updatedAt": "2025-04-03T20:00:29Z"
+      },
+      "headers": [
+      ]
+    }
   ],
   "roles": [
     {
