@@ -4,6 +4,7 @@ import ContentfulLandingPage from "@/features/contentful/components/contentful-l
 import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; // Types for Contentful landing page entries
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
+import { extractContentfulAssetUrl } from "@/lib/utils";
 
 // Get the homepage slug from environment variables
 const PAGE_SLUG = process.env.NEXT_PUBLIC_HOMEPAGE_SLUG!;
@@ -64,11 +65,29 @@ export async function generateMetadata(
   const pageEntry = entries[0] as ILandingPage;
   const previousImages = (await parent).openGraph?.images || [];
   const pageTitle = `${pageEntry?.fields?.title} | Contentful Site`;
+  const seoTitle = pageEntry?.fields?.seoMetadata?.fields?.title || pageTitle;
+  const seoDescription =
+    pageEntry?.fields?.seoMetadata?.fields?.description || "";
+
+  const seoOgImage = extractContentfulAssetUrl(
+    pageEntry?.fields?.seoMetadata?.fields?.ogImage || null
+  );
+
+  const images = seoOgImage
+    ? [`https${seoOgImage}`, ...previousImages]
+    : [...previousImages];
+  const seoNoIndex = pageEntry?.fields?.seoMetadata?.fields?.noIndex || false;
+  const seoNoFollow = pageEntry?.fields?.seoMetadata?.fields?.noFollow || false;
 
   return {
-    title: pageTitle,
+    title: seoTitle,
+    description: seoDescription,
     openGraph: {
-      images: [...previousImages],
+      images: images,
+    },
+    robots: {
+      index: seoNoIndex,
+      follow: seoNoFollow,
     },
   };
 }

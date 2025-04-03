@@ -116,6 +116,7 @@ export interface IBlogPostPage extends Entry {
     body: EntryFields.RichText;
     featuredImage: Asset;
     author?: IPerson;
+    seoMetadata?: ISeo;
   };
 }
 

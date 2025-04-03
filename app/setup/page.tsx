@@ -1,5 +1,14 @@
 import SetupForm from "./_components/setup-form";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Set up your Contentful space",
+  description: "Not indexed",
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 export default async function IndexPage() {
   return (
     <div>

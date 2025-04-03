@@ -3,6 +3,10 @@
 import React from "react";
 import { useState } from "react";
 import { seedTheSpace } from "../_lib/seeder";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Copy } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 import { AlertCircle, Loader2, Bean } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -30,6 +34,18 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 
+// env variables code string
+const codeString = `NEXT_PUBLIC_CTF_SPACE_ID='your-space-id'
+NEXT_PUBLIC_CTF_DELIVERY_TOKEN='your-delivery-access-token'
+NEXT_PUBLIC_CTF_PREVIEW_TOKEN='your-preview-access-token'
+NEXT_PUBLIC_CTF_PREVIEW_SECRET='a-preview-secret'
+NEXT_PUBLIC_CTF_ENVIRONMENT='your-space-environment'
+CONTENTFUL_PREVIEW_SECRET='a-preview-secret'
+NEXT_PUBLIC_CTF_STUDIO_EXPERIENCE_TYPE_ID="experiencePage"
+NEXT_PUBLIC_CTF_HOMEPAGE_SLUG="home"`;
+
+const VERCE_DEPLOY_LINK = `https://vercel.com/import/project?template=https://github.com/chigoKawa/Contentful-Developer-Basics-Demo`;
+
 // Define the form schema with validation
 const formSchema = z.object({
   space_id: z.string().min(1, "Space ID is required"),
@@ -47,6 +63,7 @@ const SetupForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [errorMsgs, setErrorMsgs] = useState<string[]>([]);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [copiedText, setCopiedText] = useState(false);
 
   // Initialize form with react-hook-form and zod validation
   const form = useForm<FormValues>({
@@ -100,21 +117,42 @@ const SetupForm = () => {
     }
   };
 
+  const handleCopyText = () => {
+    navigator.clipboard
+      .writeText(codeString)
+      .then(() => {
+        setCopiedText(true);
+        setTimeout(() => setCopiedText(false), 2000); // Reset the "copied" state after 2 seconds
+      })
+      .catch((err) => console.error("Failed to copy text: ", err));
+  };
+
   return (
     <div className="min-h-screen flex flex-col justify-center  w-full ">
-      <div className="max-w-md  mx-auto p-6 py-20x space-y-6">
+      <div className="max-w-lg  mx-auto p-6  space-y-6">
+        <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          Getting Started
+        </h2>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          {` To use this project, you'll need to install its content model into
+          your Contentful space. This ensures the code works seamlessly with
+          your content types and allows you to customize the provided dummy
+          content. Simply copy your Contentful Space ID and Management Token,
+          enter them into the form, and click "Seed Space" to get started.`}
+        </p>
         <div className="space-y-2">
-          <div className="w-full p-2 flex items-center justify-centerx m-auto">
+          <div className="mt-10 w-full p-2 flex items-center justify-centerx m-auto">
             {" "}
             <Bean size={70} />
           </div>
+          <h2 className=" scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+            Seed Space
+          </h2>
 
-          <h2 className="text-2xl font-bold">Seed Space</h2>
-          <p className="text-muted-foreground">
+          <p className="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
             Enter your space details to seed it with initial data.
           </p>
         </div>
-
         {hasError && (errorMsg || errorMsgs.length > 0) && (
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
@@ -133,7 +171,6 @@ const SetupForm = () => {
             </AlertDescription>
           </Alert>
         )}
-
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
@@ -212,6 +249,61 @@ const SetupForm = () => {
             </Button>
           </form>
         </Form>
+        <div className="flex flex-col gap-2">
+          <div className="mt-10 border-y py-4 flex justify-between items-center">
+            <h2 className="scroll-m-20   text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+              Set up in Vercel
+            </h2>
+            <a href={`${VERCE_DEPLOY_LINK}`} target="_blank">
+              <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+            </a>
+          </div>
+
+          <p className="">
+            To get your project up and running in Vercel, follow these steps:
+          </p>
+          <ol className="">
+            <li className="px-2 leading-7 mt-2 ">
+              1. Make sure you have your Contentful <strong>Space ID</strong>{" "}
+              and <strong>Delivery Access Token</strong> handy.
+            </li>
+            <li className="px-2 leading-7 mt-2 ">
+              2. Click the button below to deploy your project on Vercel with a
+              single click.
+            </li>
+            <li className="px-2 leading-7 mt-2 ">
+              {`3. You can copy the environment variables below and configure them
+            in Vercel's environment settings:`}
+            </li>
+          </ol>
+
+          <a href={`${VERCE_DEPLOY_LINK}`} className="py-4" target="_blank">
+            <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+          </a>
+
+          <div className="relative">
+            <Card className="p-6 shadow-lg bg-black/20  w-full">
+              <SyntaxHighlighter
+                className="mt-6"
+                language="javascript"
+                style={docco}
+              >
+                {codeString}
+              </SyntaxHighlighter>
+
+              <Button
+                onClick={handleCopyText}
+                variant="secondary"
+                className="absolute top-2 right-6 text-white bg-gray-600 hover:bg-gray-500"
+                size="sm"
+                aria-label="Copy code to clipboard"
+              >
+                <Copy size={16} />
+                {copiedText ? " Copied!" : " Copy"}
+              </Button>
+            </Card>
+          </div>
+        </div>
 
         {/* Confirmation Dialog */}
         <Dialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>

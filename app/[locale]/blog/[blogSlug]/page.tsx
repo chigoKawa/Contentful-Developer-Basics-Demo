@@ -7,6 +7,7 @@ import {
   BlogPostPageSkeleton,
 } from "@/features/contentful/type";
 import ContentfulBlogPage from "@/features/contentful/components/contentful-blog-page";
+import { extractContentfulAssetUrl } from "@/lib/utils";
 
 const INCLUDES_COUNT = 6;
 
@@ -71,11 +72,22 @@ export async function generateMetadata(
   const blogEntry = entries[0] as IBlogPostPage;
   const previousImages = (await parent).openGraph?.images || [];
   const pageTitle = `${blogEntry?.fields?.title} | Contentful Site`;
+  const seoTitle = blogEntry?.fields?.seoMetadata?.fields?.title || pageTitle;
+  const seoDescription =
+    blogEntry?.fields?.seoMetadata?.fields?.description || "";
 
+  const seoOgImage = extractContentfulAssetUrl(
+    blogEntry?.fields?.seoMetadata?.fields?.ogImage || null
+  );
+
+  const images = seoOgImage
+    ? [`https${seoOgImage}`, ...previousImages]
+    : [...previousImages];
   return {
-    title: pageTitle,
+    title: seoTitle,
+    description: seoDescription,
     openGraph: {
-      images: [...previousImages],
+      images: images,
     },
   };
 }

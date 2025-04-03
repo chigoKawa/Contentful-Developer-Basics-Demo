@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
 import { SquareArrowOutUpRight } from "lucide-react";
 
@@ -28,7 +29,14 @@ const NavBar = () => {
                 className="inline-flex items-center justify-center gap-1.5 rounded-sm border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:ring-3 focus:outline-hidden dark:border-gray-800 dark:bg-gray-900 dark:text-white dark:hover:text-gray-200"
                 type="button"
               >
-                <span className="text-sm font-medium"> Get this code </span>
+                <span className="text-sm font-medium">
+                  <Link
+                    target="_blank"
+                    href="https://github.com/chigoKawa/Contentful-Developer-Basics-Demo"
+                  >
+                    Get this code
+                  </Link>{" "}
+                </span>
                 <SquareArrowOutUpRight size={15} />
               </button>
               {/* 
