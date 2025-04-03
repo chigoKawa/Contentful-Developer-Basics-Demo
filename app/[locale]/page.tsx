@@ -74,7 +74,7 @@ export async function generateMetadata(
   );
 
   const images = seoOgImage
-    ? [`https${seoOgImage}`, ...previousImages]
+    ? [`https:${seoOgImage}`, ...previousImages]
     : [...previousImages];
   const seoNoIndex = pageEntry?.fields?.seoMetadata?.fields?.noIndex || false;
   const seoNoFollow = pageEntry?.fields?.seoMetadata?.fields?.noFollow || false;
