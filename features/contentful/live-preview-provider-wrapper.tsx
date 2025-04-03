@@ -1,6 +1,7 @@
 "use client";
 import React, { ReactNode } from "react";
 import { ContentfulLivePreviewProvider } from "@contentful/live-preview/react";
+import { useSearchParams } from "next/navigation";
 
 const LivePreviewProviderWrapper = ({
   children,
@@ -9,11 +10,14 @@ const LivePreviewProviderWrapper = ({
   children: ReactNode;
   locale: string;
 }) => {
+  const searchParams = useSearchParams();
+
+  const preview = searchParams.get("preview");
   return (
     <ContentfulLivePreviewProvider
       locale={locale}
-      enableInspectorMode={true}
-      enableLiveUpdates={true}
+      enableInspectorMode={preview ? true : false}
+      enableLiveUpdates={preview ? true : false}
     >
       {children}
     </ContentfulLivePreviewProvider>
