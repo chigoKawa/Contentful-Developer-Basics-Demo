@@ -129,7 +129,7 @@ const SetupForm = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center  w-full ">
-      <div className="max-w-lg  mx-auto p-6  space-y-6">
+      <div className="lg:max-w-xl  mx-auto p-2 lg:p-6  space-y-6">
         <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
           Getting Started
         </h2>
@@ -281,10 +281,10 @@ const SetupForm = () => {
             <img src="https://vercel.com/button" alt="Deploy with Vercel" />
           </a>
 
-          <div className="relative">
-            <Card className="p-6 shadow-lg bg-black/20  w-full">
+          <div className="relative overflow-auto w-full ">
+            <Card className="relative w-full! px-2 py-6 shadow-lg bg-black/20  ">
               <SyntaxHighlighter
-                className="mt-6"
+                className="mt-6 w-40 md:w-full overflow-scroll"
                 language="javascript"
                 style={docco}
               >
@@ -302,6 +302,66 @@ const SetupForm = () => {
                 {copiedText ? " Copied!" : " Copy"}
               </Button>
             </Card>
+          </div>
+
+          <div className="mt-10 border-y py-4 flex justify-between items-center">
+            <h2 className="scroll-m-20   text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+              Set Up Deploy Hooks & Webhook
+            </h2>
+          </div>
+
+          <p className="mb-10">
+            {`Finish the integration by generating a Vercel deploy token and then configuring a Contentful webhook.`}
+          </p>
+          <div className="flex flex-col gap-4 ">
+            <div className="p-4 flex gap-2">
+              <span>1.</span>
+              <img
+                src="https://images.ctfassets.net/m5vihs7hhhu6/6wUYCufQybX8aBtPqjZusP/48b98cf35563bfe88f6935013560191e/image.png"
+                alt=""
+                className=""
+              />
+            </div>
+            <div className="p-4 flex gap-2">
+              <span>2.</span>
+              <img
+                src="https://images.ctfassets.net/m5vihs7hhhu6/5rdC3wBcheJSslQ6OW8dkv/d80c2475fffd1692bd0b6935c9f4b229/image.png"
+                alt=""
+                className=""
+              />
+            </div>
+            <div className="p-4 flex gap-2">
+              <span>3.</span>
+              <img
+                src="https://images.ctfassets.net/m5vihs7hhhu6/6iVDte9XrhYGpsilKoGg0/6fc77170127538720219be259a4212bd/image.png"
+                alt=""
+                className=""
+              />
+            </div>
+            <div className="p-4 flex gap-2">
+              <span>4.</span>
+              <img
+                src="https://images.ctfassets.net/m5vihs7hhhu6/6GsfgEaU3gGsUWndD2vns3/0ddf07930061c2d18771d0cc02b2a0fa/image.png"
+                alt=""
+                className=""
+              />
+            </div>
+            <div className="p-4 flex gap-2">
+              <span>5.</span>
+              <img
+                src="https://images.ctfassets.net/m5vihs7hhhu6/6yAdcZX8dJIkEIPXbxqZP1/02e30b4d4ea97776319a708a85f51e90/image.png"
+                alt=""
+                className=""
+              />
+            </div>
+            <div className="p-4 flex gap-2">
+              <span>6.</span>
+              <img
+                src="https://images.ctfassets.net/m5vihs7hhhu6/4HVTYjW7itWJu2i5YEk8i1/5ba9f9e27003fd6d151af96acc26d2e7/image.png"
+                alt=""
+                className=""
+              />
+            </div>
           </div>
         </div>
 

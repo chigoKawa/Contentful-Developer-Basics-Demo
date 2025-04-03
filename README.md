@@ -2,50 +2,6 @@
 # Chi Coffee – Next.js + Contentful Starter 
 
 
-├── README.md
-├── app
-│   ├── [locale]
-│   │   ├── [slug]
-│   │   ├── blog
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   └── favicon.ico
-├── components
-│   └── ui
-│       ├── avatar.tsx
-│       ├── button.tsx
-│       └── select.tsx
-├── components.json
-├── eslint.config.mjs
-├── features
-│   ├── contentful
-│   │   ├── components
-│   │   ├── live-preview-provider-wrapper.tsx
-│   │   └── type.ts
-│   ├── layout
-│   │   ├── footer.tsx
-│   │   └── nav-bar.tsx
-│   └── locale-switching
-│       └── locale-switcher.tsx
-├── i18n-config.ts
-├── lib
-│   ├── contentful.ts
-│   └── utils.ts
-├── middleware.ts
-├── next-env.d.ts
-├── next.config.ts
-├── package-lock.json
-├── package.json
-├── postcss.config.mjs
-├── public
-│   ├── file.svg
-│   ├── globe.svg
-│   ├── next.svg
-│   ├── vercel.svg
-│   └── window.svg
-└── tsconfig.json
-
 This is a **Next.js** project integrated with **Contentful** as a CMS. It demonstrates how to fetch and render content from Contentful, use localization, and structure a scalable content model.  
 
 ---
@@ -111,3 +67,5 @@ https://nextjs.org/docs/pages/building-your-application/routing/internationaliza
  ├── tailwind.config.js  
  ├── package.json  
  ├── .env.local  → (Contentful API keys)  
+
+ TBC
