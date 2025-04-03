@@ -77,8 +77,10 @@ export async function generateMetadata(
     pageEntry?.fields?.seoMetadata?.fields?.ogImage || null
   );
 
-  const images = seoOgImage
-    ? [`https:${seoOgImage}?w=1200&h=630`, ...previousImages]
+  const fullImageUrl = seoOgImage ? `https:${seoOgImage}?w=1200&h=630` : null;
+
+  const images = fullImageUrl
+    ? [fullImageUrl, ...previousImages]
     : [...previousImages];
 
   const seoNoIndex = pageEntry?.fields?.seoMetadata?.fields?.noIndex || false;
@@ -91,8 +93,8 @@ export async function generateMetadata(
       images: images,
     },
     robots: {
-      index: seoNoIndex,
-      follow: seoNoFollow,
+      index: !seoNoIndex,
+      follow: !seoNoFollow,
     },
   };
 }

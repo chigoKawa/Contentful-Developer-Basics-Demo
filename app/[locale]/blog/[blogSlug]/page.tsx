@@ -80,14 +80,24 @@ export async function generateMetadata(
     blogEntry?.fields?.seoMetadata?.fields?.ogImage || null
   );
 
-  const images = seoOgImage
-    ? [`https${seoOgImage}`, ...previousImages]
+  const fullImageUrl = seoOgImage ? `https:${seoOgImage}?w=1200&h=630` : null;
+
+  const images = fullImageUrl
+    ? [fullImageUrl, ...previousImages]
     : [...previousImages];
+
+  const seoNoIndex = blogEntry?.fields?.seoMetadata?.fields?.noIndex || false;
+  const seoNoFollow = blogEntry?.fields?.seoMetadata?.fields?.noFollow || false;
+
   return {
     title: seoTitle,
     description: seoDescription,
     openGraph: {
       images: images,
+    },
+    robots: {
+      index: !seoNoIndex,
+      follow: !seoNoFollow,
     },
   };
 }

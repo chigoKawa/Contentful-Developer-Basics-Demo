@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "Set up your Contentful space",
   description: "Not indexed",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 export default async function IndexPage() {
