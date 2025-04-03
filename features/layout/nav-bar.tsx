@@ -17,9 +17,11 @@ const NavBar = () => {
         <div className="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 sm:py-6 lg:px-8">
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-2xl font-bold  sm:text-3xl text-white">
-                ☕ Chi Coffee
-              </p>
+              <Link href="/" className="">
+                <p className="text-2xl font-bold  sm:text-3xl text-white">
+                  ☕ Chi Coffee
+                </p>
+              </Link>
 
               <p className="mt-1.5 text-sm text-gray-500 dark:text-gray-400"></p>
             </div>
