@@ -3,20 +3,35 @@ import { getI18nConfig } from "./i18n-config";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
+function sanitizeLanguageTags(tags: string[]): string[] {
+  return tags.filter((tag) => {
+    if (!tag || tag === "*") return false;
+    try {
+      // Throws if invalid per BCP47
+      return Intl.getCanonicalLocales(tag).length > 0;
+    } catch {
+      return false;
+    }
+  });
+}
+
 async function getLocale(request: NextRequest) {
-  const { locales, defaultLocale } = await getI18nConfig(); // Wait for async function to resolve
+  const { locales, defaultLocale } = await getI18nConfig();
 
   // Get user's preferred languages from the request headers
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  const acceptedLanguages = new Negotiator({
-    headers: negotiatorHeaders,
-  }).languages();
+  const acceptedLanguagesRaw = new Negotiator({ headers: negotiatorHeaders }).languages();
+  const acceptedLanguages = sanitizeLanguageTags(acceptedLanguagesRaw);
+  const availableLocales = sanitizeLanguageTags(locales);
 
-  const matchedLocale = matchLocale(acceptedLanguages, locales, defaultLocale); // Default must be in array
+  // Fall back sensibly if everything was filtered
+  const candidateLanguages = acceptedLanguages.length > 0 ? acceptedLanguages : [defaultLocale];
+  const candidateLocales = availableLocales.length > 0 ? availableLocales : [defaultLocale];
 
-  return matchedLocale || defaultLocale; // Ensure we always return a valid locale
+  const matchedLocale = matchLocale(candidateLanguages, candidateLocales, defaultLocale);
+  return matchedLocale || defaultLocale;
 }
 
 export async function middleware(request: NextRequest) {
