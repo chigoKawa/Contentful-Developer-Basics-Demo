@@ -17,7 +17,7 @@ export default function PersonalizedHeroBanner(entry: IHeroBanner) {
   let mappedExperiencesUnknown: unknown[] = [];
   try {
     mappedExperiencesUnknown = experiencesUnknown.filter(isExp).map(mapExp);
-  } catch (e) {
+  } catch {
     // If mapping fails for any reason, render baseline to avoid 500s in production
     return <HerobannerWrapper {...entry} />;
   }

@@ -2,6 +2,7 @@ import { Locale, getI18nConfig } from "@/i18n-config"; // Import locale type for
 import { getEntries, getAllPageSlugs } from "@/lib/contentful"; // Function to fetch data from Contentful
 import ContentfulLandingPage from "@/features/contentful/components/contentful-landing-page"; // Component to render the landing page
 import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; // Types for Contentful landing page entries
+import type { Asset } from "contentful";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { extractContentfulAssetUrl } from "@/lib/utils";
@@ -88,9 +89,8 @@ export async function generateMetadata(
   const seoDescription =
     pageEntry?.fields?.seoMetadata?.fields?.description || "";
 
-  const seoOgImage = extractContentfulAssetUrl(
-    (pageEntry?.fields?.seoMetadata?.fields?.ogImage as any) || null
-  );
+  const ogAsset = (pageEntry?.fields?.seoMetadata?.fields?.ogImage ?? null) as Asset | null;
+  const seoOgImage = extractContentfulAssetUrl(ogAsset);
 
   const fullImageUrl = seoOgImage ? `https:${seoOgImage}?w=1200&h=630` : null;
 
