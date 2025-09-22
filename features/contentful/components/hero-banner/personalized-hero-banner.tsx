@@ -14,7 +14,13 @@ export default function PersonalizedHeroBanner(entry: IHeroBanner) {
   const isExp = ExperienceMapper.isExperienceEntry as (v: unknown) => boolean;
   const mapExp = ExperienceMapper.mapExperience as (v: unknown) => unknown;
 
-  const mappedExperiencesUnknown = experiencesUnknown.filter(isExp).map(mapExp);
+  let mappedExperiencesUnknown: unknown[] = [];
+  try {
+    mappedExperiencesUnknown = experiencesUnknown.filter(isExp).map(mapExp);
+  } catch (e) {
+    // If mapping fails for any reason, render baseline to avoid 500s in production
+    return <HerobannerWrapper {...entry} />;
+  }
   type ExperiencesProp = NonNullable<
     React.ComponentProps<typeof Experience>["experiences"]
   >;

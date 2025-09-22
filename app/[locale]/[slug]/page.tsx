@@ -22,23 +22,29 @@ export default async function IndexPage({ params, searchParams }: Props) {
 
   const { locale, slug } = await params;
 
-  // Fetch landing page data from Contentful based on the slug and locale
-  const entries = await getEntries<LandingPageSkeleton>(
-    {
-      content_type: "landingPage",
-      "fields.slug": slug,
-      include: INCLUDES_COUNT,
-      locale,
-    },
-    !!isPreviewEnabled
-  );
-
-  // Get the first entry and cast it to ILandingPage type
-  const pageEntry = entries[0] as ILandingPage;
+  let pageEntry: ILandingPage | undefined;
+  try {
+    const entries = await getEntries<LandingPageSkeleton>(
+      {
+        content_type: "landingPage",
+        "fields.slug": slug,
+        include: INCLUDES_COUNT,
+        locale,
+      },
+      !!isPreviewEnabled
+    );
+    pageEntry = entries[0] as ILandingPage | undefined;
+  } catch (err) {
+    console.error("[slug] getEntries error", { slug, locale, err });
+  }
 
   if (!pageEntry) {
+    // Gracefully render 404 for missing content/locale combinations
     notFound();
   }
+
+  // Serialize the Contentful Entry to ensure only plain JSON crosses the server->client boundary
+  const pageData = JSON.parse(JSON.stringify(pageEntry)) as ILandingPage;
 
   return (
     <div>
@@ -47,7 +53,7 @@ export default async function IndexPage({ params, searchParams }: Props) {
         locale={locale}
         isPreviewEnabled={!!isPreviewEnabled}
       >
-        <ContentfulLandingPage entry={pageEntry} />
+        <ContentfulLandingPage entry={pageData} />
       </LivePreviewProviderWrapper>
     </div>
   );
@@ -61,27 +67,29 @@ export async function generateMetadata(
   const { preview: isPreviewEnabled } = await searchParams;
   const { locale, slug } = await params;
 
-  // Fetch landing page data from Contentful based on the slug and locale
-  const entries = await getEntries<LandingPageSkeleton>(
-    {
-      content_type: "landingPage",
-      "fields.slug": slug,
-      include: INCLUDES_COUNT,
-      locale,
-    },
-    !!isPreviewEnabled
-  );
-
-  // Get the first entry and cast it to ILandingPage type
-  const pageEntry = entries[0] as ILandingPage;
+  let pageEntry: ILandingPage | undefined;
+  try {
+    const entries = await getEntries<LandingPageSkeleton>(
+      {
+        content_type: "landingPage",
+        "fields.slug": slug,
+        include: INCLUDES_COUNT,
+        locale,
+      },
+      !!isPreviewEnabled
+    );
+    pageEntry = entries[0] as ILandingPage | undefined;
+  } catch (err) {
+    console.error("[slug] generateMetadata getEntries error", { slug, locale, err });
+  }
   const previousImages = (await parent).openGraph?.images || [];
-  const pageTitle = `${pageEntry?.fields?.title} | Contentful Site`;
+  const pageTitle = `${pageEntry?.fields?.title ?? slug} | Contentful Site`;
   const seoTitle = pageEntry?.fields?.seoMetadata?.fields?.title || pageTitle;
   const seoDescription =
     pageEntry?.fields?.seoMetadata?.fields?.description || "";
 
   const seoOgImage = extractContentfulAssetUrl(
-    pageEntry?.fields?.seoMetadata?.fields?.ogImage || null
+    (pageEntry?.fields?.seoMetadata?.fields?.ogImage as any) || null
   );
 
   const fullImageUrl = seoOgImage ? `https:${seoOgImage}?w=1200&h=630` : null;
