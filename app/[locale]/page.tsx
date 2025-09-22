@@ -1,4 +1,4 @@
-import { Locale } from "@/i18n-config"; // Import locale type for internationalization
+import { Locale, getI18nConfig } from "@/i18n-config"; // Import locale type for internationalization
 import { getEntries } from "@/lib/contentful"; // Function to fetch data from Contentful
 import ContentfulLandingPage from "@/features/contentful/components/contentful-landing-page"; // Component to render the landing page
 import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; // Types for Contentful landing page entries
@@ -20,15 +20,20 @@ type Props = {
 
 export default async function IndexPage({ params, searchParams }: Props) {
   const { locale } = await params;
-  const { preview: isPreviewEnabled } = await searchParams;
+
+  const isPreviewEnabled = Boolean((await searchParams)?.preview || false);
+  // console.log("filters", await searchParams);
 
   // Fetch landing page data from Contentful based on the slug and locale
-  const entries = await getEntries<LandingPageSkeleton>({
-    content_type: "landingPage",
-    "fields.slug": PAGE_SLUG,
-    include: INCLUDES_COUNT,
-    locale,
-  });
+  const entries = await getEntries<LandingPageSkeleton>(
+    {
+      content_type: "landingPage",
+      "fields.slug": PAGE_SLUG,
+      include: INCLUDES_COUNT,
+      locale,
+    },
+    isPreviewEnabled
+  );
 
   // Get the first entry and cast it to ILandingPage type
   const pageEntry = entries[0] as ILandingPage;
@@ -54,7 +59,11 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { preview: isPreviewEnabled } = await searchParams;
+  const sp = await searchParams;
+  const isPreviewEnabled = Object.prototype.hasOwnProperty.call(
+    sp ?? {},
+    "preview"
+  );
   const { locale } = await params;
 
   // Fetch landing page data from Contentful based on the slug and locale
@@ -89,6 +98,18 @@ export async function generateMetadata(
   const seoNoIndex = pageEntry?.fields?.seoMetadata?.fields?.noIndex || false;
   const seoNoFollow = pageEntry?.fields?.seoMetadata?.fields?.noFollow || false;
 
+  // Determine the metadata base URL (Vercel's URL or localhost for development)
+  const metadataBase = process.env.VERCEL_URL
+    ? new URL(`https://${process.env.VERCEL_URL}`)
+    : new URL(
+        process.env.NEXT_PUBLIC_SITE_URL ||
+          `http://localhost:${process.env.PORT || 3000}`
+      );
+
+  // Canonical URL should be clean for default locale, prefixed for others
+  const { defaultLocale } = await getI18nConfig();
+  const canonicalPath = locale === defaultLocale ? `/` : `/${locale}`;
+
   return {
     title: seoTitle,
     description: seoDescription,
@@ -98,6 +119,10 @@ export async function generateMetadata(
     robots: {
       index: !seoNoIndex,
       follow: !seoNoFollow,
+    },
+    metadataBase,
+    alternates: {
+      canonical: canonicalPath,
     },
   };
 }

@@ -20,23 +20,47 @@ async function getLocale(request: NextRequest) {
 }
 
 export async function middleware(request: NextRequest) {
-  const locale = await getLocale(request); // Get the best matching locale
-  const { locales } = await getI18nConfig();
-  const pathname = request.nextUrl.pathname;
+  const { locales, defaultLocale } = await getI18nConfig();
+  const { pathname } = request.nextUrl;
 
-  // Check if the pathname already contains a locale
-  const isMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  const startsWithLocale = locales.find(
+    (loc) => pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)
   );
 
-  if (isMissingLocale) {
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        request.url
-      )
-    );
+  // 1) If URL already has a locale prefix
+  if (startsWithLocale) {
+    // If it's the default locale, redirect to clean URL without the locale prefix
+    if (startsWithLocale === defaultLocale) {
+      const stripped = pathname.replace(
+        new RegExp(`^/${defaultLocale}(?:/)?`),
+        "/"
+      );
+      const cleanPath = stripped === "" ? "/" : stripped;
+      if (cleanPath !== pathname) {
+        const url = request.nextUrl.clone();
+        url.pathname = cleanPath;
+        // preserve existing search params by mutating only the pathname
+        return NextResponse.redirect(url);
+      }
+    }
+    // Non-default locales: let the request continue
+    return;
   }
+
+  // 2) If URL is missing a locale prefix
+  const best = await getLocale(request);
+
+  // For the default locale: keep clean URL by rewriting internally
+  if (best === defaultLocale) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
+  // For non-default best matches: redirect to locale-prefixed URL
+  const url = request.nextUrl.clone();
+  url.pathname = `/${best}${pathname}`;
+  return NextResponse.redirect(url);
 }
 
 export const config = {

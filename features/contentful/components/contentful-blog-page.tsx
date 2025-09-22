@@ -113,10 +113,10 @@ export const richTextOptions: Options = {
         <Component isInline={true} {...componentEntry} />
       ) : (
         <span className="p-10 text-lg text-red-500">
-          <p>
+          <div>
             ⚠️ <strong>Missing component</strong> for content type:{" "}
             <strong>{contentTypeId}</strong>.
-          </p>
+          </div>
         </span>
       );
     },

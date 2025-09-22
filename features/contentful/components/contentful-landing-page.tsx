@@ -3,13 +3,13 @@
 import React, { FC } from "react";
 // Importing interfaces and components
 import { ILandingPage } from "../type";
-import HerobannerWrapper from "@/features/contentful/components/hero-banner/hero-banner-wrapper";
+import PersonalizedHeroBanner from "@/features/contentful/components/hero-banner/personalized-hero-banner";
 import CtaWrapper from "./cta/cta-wrapper";
 // Import live updates hook from Contentful -> https://github.com/contentful/live-preview
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 // Import types for HeroBanner and CTA
-import { IHeroBanner } from "../type";
-import { ICta } from "../type";
+import { IHeroBanner, ICta, IFrame } from "../type";
+import Frame from "./frame/frame";
 
 // Define the props interface for the ContentfulLandingPage component
 interface IProps {
@@ -25,7 +25,7 @@ type ComponentMap = {
 
 // Mapping of content type ID to React component
 const componentMap: ComponentMap = {
-  heroBanner: HerobannerWrapper, // HeroBanner component is mapped to "heroBanner"
+  heroBanner: PersonalizedHeroBanner, // Resolve experience and render existing wrapper
   cta: CtaWrapper,
 };
 
@@ -36,9 +36,15 @@ const ContentfulLandingPage: FC<IProps> = ({ entry: publishedEntry }) => {
 
   // Extract page content (an array of components from the content field) from the Contentful entry
   const pageContent = entry?.fields?.sections;
+  const frames = entry?.fields?.frames as unknown as IFrame[] | undefined;
 
   return (
     <div className="w-full overflow-hidden">
+      {/* New: render Frames if present */}
+      {Array.isArray(frames) &&
+        frames?.map((frameEntry, index) => (
+          <Frame key={`frame-${index}`} {...frameEntry} />
+        ))}
       {/* Iterate over each content entry to dynamically render components */}
       {pageContent?.map(
         (componentEntry: ILandingPage["fields"]["sections"][0], index) => {

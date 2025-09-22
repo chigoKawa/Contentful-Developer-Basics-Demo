@@ -5,6 +5,7 @@ import NavBar from "@/features/layout/nav-bar";
 import { getI18nConfig, type Locale } from "@/i18n-config";
 import Footer from "@/features/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
+import AppProviders from "@/features/app-providers";
 
 import "./globals.css";
 
@@ -43,10 +44,12 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar />
-        {children}
-        <Toaster />
-        <Footer />
+        <AppProviders>
+          <NavBar />
+          {children}
+          <Toaster />
+          <Footer />
+        </AppProviders>
       </body>
     </html>
   );

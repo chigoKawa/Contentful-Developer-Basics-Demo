@@ -1,4 +1,4 @@
-import { Entry, EntryFields, Asset } from "contentful";
+import { Entry, EntryFields, Asset, EntrySkeletonType } from "contentful";
 
 export interface IExternalUrl extends Entry {
   fields: {
@@ -10,6 +10,11 @@ export interface IExternalUrl extends Entry {
     >;
   };
 }
+
+export type CtaSkeleton = {
+  contentTypeId: "cta";
+  fields: ICta["fields"];
+};
 
 export interface IBaseButton extends Entry {
   fields: {
@@ -62,6 +67,7 @@ export interface IHeroBanner extends Entry {
       "Primary" | "Centered" | "With Background Image" | "Right Aligned"
     >;
     actionButtons: EntryFields.Array<IBaseButton>;
+    nt_experiences: Entry<EntrySkeletonType>[];
   };
 }
 export type HeroBannerSkeleton = {
@@ -81,8 +87,9 @@ export interface ILandingPage extends Entry {
     title: EntryFields.Symbol;
     slug: EntryFields.Symbol;
     heroBanner: EntryFields.EntryLink<HeroBannerSkeleton>;
+    sections: EntryFields.Array<EntryFields.EntryLink<EntrySkeletonType>>;
+    frames?: EntryFields.Array<EntryFields.EntryLink<FrameSkeleton>>;
     seoMetadata?: ISeo;
-    sections: EntryFields.Array<IHeroBanner | ICta>;
   };
 }
 
@@ -123,4 +130,93 @@ export interface IBlogPostPage extends Entry {
 export type BlogPostPageSkeleton = {
   contentTypeId: "blogPost";
   fields: IBlogPostPage["fields"];
+};
+
+// -----------------------------
+// New content types: Frame model
+// -----------------------------
+
+export interface IFrameHeader extends Entry {
+  fields: {
+    internalTitle?: EntryFields.Symbol;
+    headline: EntryFields.RichText;
+    subline?: EntryFields.RichText;
+    eyebrow?: EntryFields.Symbol;
+    nt_experiences?: Entry<EntrySkeletonType>[];
+  };
+}
+
+export type FrameHeaderSkeleton = {
+  contentTypeId: "frameHeader";
+  fields: IFrameHeader["fields"];
+};
+
+// Minimal placeholders for image wrappers used in Frame.things
+export interface IImageWrapper extends Entry {
+  fields: {
+    internalTitle?: EntryFields.Symbol;
+    asset?: Asset;
+  };
+}
+
+export type ImageWrapperSkeleton = {
+  contentTypeId: "imageWrapper";
+  fields: IImageWrapper["fields"];
+};
+
+export interface IPexelsImageWrapper extends Entry {
+  fields: {
+    internalTitle?: EntryFields.Symbol;
+    asset?: Asset;
+  };
+}
+
+export type PexelsImageWrapperSkeleton = {
+  contentTypeId: "pexelsImageWrapper";
+  fields: IPexelsImageWrapper["fields"];
+};
+
+export interface ICallout extends Entry {
+  fields: {
+    internalTitle: EntryFields.Symbol;
+    title?: EntryFields.RichText;
+    subtitle?: EntryFields.RichText;
+    button?: IBaseButton;
+    media?: Asset;
+  };
+}
+
+export type CalloutSkeleton = {
+  contentTypeId: "callout";
+  fields: ICallout["fields"];
+};
+
+export interface IFrame extends Entry {
+  fields: {
+    internalTitle: EntryFields.Symbol;
+    frameHeader?: EntryFields.EntryLink<FrameHeaderSkeleton>;
+    layout: EntryFields.Symbol<
+      "single" | "duplex" | "hero" | "grid" | "carousel" | "list"
+    >;
+    theme: EntryFields.Symbol<"light" | "dark" | "brand">;
+    backgroundColor: EntryFields.Symbol<
+      "primary" | "secondary" | "accent" | "neutral" | "transparent"
+    >;
+    backgroundMedia?: Asset;
+    things?: EntryFields.Array<
+      EntryFields.EntryLink<
+        ImageWrapperSkeleton | PexelsImageWrapperSkeleton | CalloutSkeleton | BlogPostPageSkeleton
+      >
+    >;
+    gap?: EntryFields.Symbol<"sm" | "md" | "lg" | "xl">;
+    padding?: EntryFields.Symbol<"none" | "sm" | "md" | "lg" | "xl" | "xxl">;
+    alignment: EntryFields.Symbol<"left" | "right" | "center">;
+    dimBackground?: EntryFields.Symbol<"10" | "20" | "30" | "40" | "50">;
+    tintColor?: EntryFields.Symbol<"none" | "primary" | "secondary" | "accent" | "black">;
+  };
+}
+
+export type FrameSkeleton = {
+  contentTypeId: "frame";
+  fields: IFrame["fields"];
 };
