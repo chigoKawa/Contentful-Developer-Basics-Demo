@@ -10,6 +10,12 @@ import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provi
 
 const INCLUDES_COUNT = 6;
 
+// Safe stopgap: force dynamic rendering and disable caching on this route to avoid
+// DYNAMIC_SERVER_USAGE during server component render while we validate upstream data.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const fetchCache = "force-no-store";
+
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>; // Extract locale from the URL params
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>; // Extract preview from the URL search params
@@ -133,7 +139,7 @@ export async function generateMetadata(
 
 // Next.js will invalidate the cache when a
 // request comes in, at most once every 60 seconds.
-export const revalidate = 60;
+// revalidate is defined at top of file for this route
 
 // We'll prerender only the params from `generateStaticParams` at build time.
 // If a request comes in for a path that hasn't been generated,
