@@ -33,8 +33,9 @@ export default function Frame(frame: IFrame) {
   });
   // Fields can be temporarily undefined while preview/live updates stream in.
   // Use a defensive fallback with sensible defaults to avoid runtime crashes.
-  const f = (liveFrame as unknown as { fields?: Partial<IFrame["fields"]> })
-    .fields || {};
+  const f =
+    (liveFrame as unknown as { fields?: Partial<IFrame["fields"]> }).fields ||
+    {};
 
   const {
     layout = "single",
@@ -188,19 +189,13 @@ export default function Frame(frame: IFrame) {
             let right = null as React.ReactNode;
 
             if (isHeaderPresent) {
-              // Header on one side, first thing on the other; swap by alignment
+              // Header on one side, first thing on the other; respect explicit alignment
               if (alignment === "right") {
                 left = firstNode;
                 right = headerNode;
               } else {
                 left = headerNode;
                 right = firstNode;
-              }
-              // Prefer media on the right if the thing is an image
-              if (isImageCtid(firstCtid) && left === firstNode) {
-                const tmp = left;
-                left = right;
-                right = tmp;
               }
             } else {
               // Use first two things; swap by alignment

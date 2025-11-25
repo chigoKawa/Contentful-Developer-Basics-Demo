@@ -303,6 +303,81 @@ async function createAndPublishAsset(client: any, asset: any) {
   }
 }
 
+async function installAppsFromEditorInterfaces(
+  client: any,
+  contentfulSpaceExportFile: any
+) {
+  try {
+    const editorInterfaces = contentfulSpaceExportFile.editorInterfaces || [];
+    const appDefinitionIds = new Set<string>();
+
+    for (const ei of editorInterfaces) {
+      const controls = ei.controls || [];
+      const sidebar = ei.sidebar || [];
+
+      for (const control of controls) {
+        if (
+          control?.widgetNamespace === "app" &&
+          typeof control.widgetId === "string"
+        ) {
+          appDefinitionIds.add(control.widgetId);
+        }
+      }
+
+      for (const sbItem of sidebar) {
+        if (
+          sbItem?.widgetNamespace === "app" &&
+          typeof sbItem.widgetId === "string"
+        ) {
+          appDefinitionIds.add(sbItem.widgetId);
+        }
+      }
+    }
+
+    if (!appDefinitionIds.size) {
+      console.log("No app widgets found in editor interfaces.");
+      return;
+    }
+
+    console.log(
+      "Installing apps for app widgets:",
+      Array.from(appDefinitionIds.values())
+    );
+
+    const existingInstallations = await client.appInstallation.getMany({});
+    const installedIds = new Set(
+      (existingInstallations.items || []).map(
+        (inst: any) => inst?.sys?.appDefinition?.sys?.id
+      )
+    );
+
+    for (const appDefinitionId of appDefinitionIds) {
+      if (!appDefinitionId) continue;
+      if (installedIds.has(appDefinitionId)) {
+        console.log(
+          `App installation for "${appDefinitionId}" already exists, skipping.`
+        );
+        continue;
+      }
+
+      try {
+        console.log(`Installing app "${appDefinitionId}"...`);
+        await client.appInstallation.upsert(
+          { appDefinitionId },
+          {
+            parameters: {},
+          }
+        );
+        console.log(`App "${appDefinitionId}" installed.`);
+      } catch (error: any) {
+        console.error(`Error installing app "${appDefinitionId}":`, error);
+      }
+    }
+  } catch (error) {
+    console.error("Error while installing apps from editor interfaces:", error);
+  }
+}
+
 export async function seedTheSpace({ managementToken, spaceId, envId }: any) {
   try {
     const client = createClient(
@@ -327,6 +402,9 @@ export async function seedTheSpace({ managementToken, spaceId, envId }: any) {
     for (const contentType of contentfulSpaceExportFile.contentTypes) {
       await createAndPublishContentType(client, contentType);
     }
+
+    // Install apps used in editor interfaces before updating them
+    await installAppsFromEditorInterfaces(client, contentfulSpaceExportFile);
 
     //  update editor interface
     await importEditorInterfaces(client, contentfulSpaceExportFile);

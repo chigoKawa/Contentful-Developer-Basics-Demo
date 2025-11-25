@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Entry, EntryFields, Asset, EntrySkeletonType } from "contentful";
 
 export interface IExternalUrl extends Entry {
@@ -164,10 +165,37 @@ export type ImageWrapperSkeleton = {
   fields: IImageWrapper["fields"];
 };
 
+type JsonObject = { [key: string]: any };
+export interface IPexelsPhotoData extends JsonObject {
+  photographer: string;
+  photographer_url: string;
+  image: string;
+  src: {
+    original: string;
+    large2x: string;
+    large: string;
+    medium: string;
+    small: string;
+    portrait: string;
+    landscape: string;
+    tiny: string;
+  };
+  alt: string;
+  avg_color: string;
+  url: string;
+  attribution: string;
+  photographer_attribution: string;
+  width: number;
+  height?: number;
+}
+
 export interface IPexelsImageWrapper extends Entry {
   fields: {
-    internalTitle?: EntryFields.Symbol;
-    asset?: Asset;
+    internalTitle: EntryFields.Symbol;
+    pexelsImage: EntryFields.Object<IPexelsPhotoData>;
+    enableZoom?: EntryFields.Boolean;
+    enableBlur?: EntryFields.Boolean;
+    radius?: EntryFields.Symbol<"None" | "Small" | "Medium" | "Large" | "Full">;
   };
 }
 
@@ -205,14 +233,19 @@ export interface IFrame extends Entry {
     backgroundMedia?: Asset;
     things?: EntryFields.Array<
       EntryFields.EntryLink<
-        ImageWrapperSkeleton | PexelsImageWrapperSkeleton | CalloutSkeleton | BlogPostPageSkeleton
+        | ImageWrapperSkeleton
+        | PexelsImageWrapperSkeleton
+        | CalloutSkeleton
+        | BlogPostPageSkeleton
       >
     >;
     gap?: EntryFields.Symbol<"sm" | "md" | "lg" | "xl">;
     padding?: EntryFields.Symbol<"none" | "sm" | "md" | "lg" | "xl" | "xxl">;
     alignment: EntryFields.Symbol<"left" | "right" | "center">;
     dimBackground?: EntryFields.Symbol<"10" | "20" | "30" | "40" | "50">;
-    tintColor?: EntryFields.Symbol<"none" | "primary" | "secondary" | "accent" | "black">;
+    tintColor?: EntryFields.Symbol<
+      "none" | "primary" | "secondary" | "accent" | "black"
+    >;
   };
 }
 

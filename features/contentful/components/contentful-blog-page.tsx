@@ -32,7 +32,9 @@ interface IProps {
 // Define rich text rendering options
 export const richTextOptions: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="mb-4">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (_, children) => (
+      <p className="mb-4 break-words">{children}</p>
+    ),
     [BLOCKS.HEADING_1]: (_, children) => (
       <h1 className="text-4xl font-bold mb-6">{children}</h1>
     ),
@@ -62,11 +64,11 @@ export const richTextOptions: Options = {
       if (!fileUrl) return null;
 
       return (
-        <div className="my-6">
+        <div className="my-6 overflow-hidden">
           <img
             src={`https:${fileUrl}`}
             alt={title}
-            className="rounded-md w-full object-cover"
+            className="rounded-md w-full max-w-full object-cover"
           />
           <p className="text-sm mt-2 text-center">{title}</p>
         </div>
@@ -77,7 +79,7 @@ export const richTextOptions: Options = {
         href={node.data.uri}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:underline"
+        className="text-blue-600 hover:underline break-words"
       >
         {children}
       </a>
@@ -138,7 +140,10 @@ const ContentfulBlogPage: FC<IProps> = ({ entry: publishedEntry }) => {
   });
 
   return (
-    <div className="relative max-w-screen-md mx-auto px-4 py-8 prose">
+    <div
+      className="relative mx-auto w-full max-w-screen-md px-4 py-8 prose max-w-full overflow-x-hidden
+      [&_*]:break-words [&_pre]:overflow-x-auto [&_code]:break-words [&_table]:block [&_table]:max-w-full"
+    >
       <h1
         {...inspectorProps({ fieldId: "title" })}
         className="text-4xl font-bold mb-6"
@@ -155,12 +160,12 @@ const ContentfulBlogPage: FC<IProps> = ({ entry: publishedEntry }) => {
       {featuredImageUrl && (
         <div
           {...inspectorProps({ fieldId: "featuredImage" })}
-          className="mb-6 relative"
+          className="mb-6 relative overflow-hidden"
         >
           <img
             src={`https:${featuredImageUrl}`}
             alt={title || "Featured Image"}
-            className="h-56x relative rounded-lg w-full "
+            className="relative rounded-lg w-full max-w-full object-cover"
           />
         </div>
       )}
@@ -176,7 +181,7 @@ const ContentfulBlogPage: FC<IProps> = ({ entry: publishedEntry }) => {
 
       <div
         {...inspectorProps({ fieldId: "body" })}
-        className="prose prose-lg mb-8"
+        className="prose prose-lg mb-8 max-w-full overflow-x-hidden"
       >
         {documentToReactComponents(body, richTextOptions)}
       </div>
