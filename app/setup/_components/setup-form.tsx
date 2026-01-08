@@ -2,7 +2,6 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { seedTheSpace } from "../_lib/seeder";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Copy } from "lucide-react";
@@ -57,8 +56,6 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-// This function would be your actual API call
-
 const SetupForm = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -95,6 +92,8 @@ const SetupForm = () => {
     setHasError(false);
 
     try {
+      const { seedTheSpace } = await import("../_lib/seeder");
+
       const result: any = await seedTheSpace({
         spaceId: form.getValues("space_id"),
         managementToken: form.getValues("mgt_access_token"),

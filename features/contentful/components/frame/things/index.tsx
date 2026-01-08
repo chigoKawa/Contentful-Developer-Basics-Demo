@@ -3,9 +3,7 @@
 
 import React from "react";
 import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
-import ThingCallout from "./Callout";
-import ThingImage from "./Image";
-import ThingBlogPost from "./BlogPost";
+import { thingsComponentMap } from "../../../component-maps/things";
 import type {
   ICallout,
   IImageWrapper,
@@ -33,23 +31,12 @@ function ThingView({
   const ctid = liveEntry?.sys?.contentType?.sys?.id as string | undefined;
   if (!ctid) return null;
 
-  switch (ctid) {
-    case "callout":
-      return <ThingCallout entry={liveEntry as ICallout} display={display} />;
-    case "imageWrapper":
-    case "pexelsImageWrapper":
-      return (
-        <ThingImage
-          entry={liveEntry as IImageWrapper | IPexelsImageWrapper}
-          display={display}
-        />
-      );
-    case "blogPost":
-      return <ThingBlogPost entry={liveEntry as IBlogPostPage} />;
-    default:
-      console.warn("Unsupported Thing content type:", ctid);
-      return null;
+  const Component = thingsComponentMap[ctid];
+  if (!Component) {
+    console.warn("Unsupported Thing content type:", ctid);
+    return null;
   }
+  return Component(liveEntry, display);
 }
 
 export default function Thing({

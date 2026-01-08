@@ -13,16 +13,7 @@ import { useContentfulLiveUpdates } from "@contentful/live-preview/react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { extractContentfulAssetUrl } from "@/lib/utils";
 import { useContentfulInspectorMode } from "@contentful/live-preview/react";
-import CtaWrapper from "./cta/cta-wrapper";
-import CodeSnippet from "./code-snippet/code-snippet";
-import PersonWrapper from "./person/person-wrapper";
-
-// Embed component map for handling Contentful embedded entries
-const embeddedBlockComponentMap = {
-  cta: CtaWrapper,
-  codeSnippet: CodeSnippet,
-  person: PersonWrapper,
-};
+import { renderEmbeddedEntry } from "../component-maps/embedded-entries";
 
 // Define the props interface
 interface IProps {
@@ -85,42 +76,10 @@ export const richTextOptions: Options = {
       </a>
     ),
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-      const componentEntry = node.data.target;
-      const contentTypeId = node?.data?.target?.sys?.contentType?.sys?.id || "";
-      const Component =
-        embeddedBlockComponentMap[
-          contentTypeId as keyof typeof embeddedBlockComponentMap
-        ];
-
-      return Component ? (
-        <Component {...componentEntry} />
-      ) : (
-        <div className="p-10 text-lg text-red-500">
-          <p>
-            ⚠️ <strong>Missing component</strong> for content type:{" "}
-            <strong>{contentTypeId}</strong>.
-          </p>
-        </div>
-      );
+      return renderEmbeddedEntry(node.data.target);
     },
     [INLINES.EMBEDDED_ENTRY]: (node) => {
-      const componentEntry = node.data.target;
-      const contentTypeId = node?.data?.target?.sys?.contentType?.sys?.id || "";
-      const Component =
-        embeddedBlockComponentMap[
-          contentTypeId as keyof typeof embeddedBlockComponentMap
-        ];
-
-      return Component ? (
-        <Component isInline={true} {...componentEntry} />
-      ) : (
-        <span className="p-10 text-lg text-red-500">
-          <div>
-            ⚠️ <strong>Missing component</strong> for content type:{" "}
-            <strong>{contentTypeId}</strong>.
-          </div>
-        </span>
-      );
+      return renderEmbeddedEntry(node.data.target, { isInline: true });
     },
   },
   renderText: (text) => text.replace("", ""),

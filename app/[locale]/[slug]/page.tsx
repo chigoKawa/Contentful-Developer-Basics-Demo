@@ -5,8 +5,9 @@ import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; 
 import type { Asset } from "contentful";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { extractContentfulAssetUrl } from "@/lib/utils";
+import { extractContentfulAssetUrl, isPreviewEnabled } from "@/lib/utils";
 import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
+import { mapLandingPageToProps } from "@/lib/contentful-mappers";
 
 const INCLUDES_COUNT = 6;
 
@@ -25,7 +26,7 @@ type Props = {
 
 export default async function IndexPage({ params, searchParams }: Props) {
   // App Router: treat presence of ?preview as enabled
-  const isPreviewEnabled = Boolean((await searchParams)?.preview || false);
+  const isPreviewEnabledFlag = isPreviewEnabled(await searchParams);
 
   const { locale, slug } = await params;
 
@@ -38,7 +39,7 @@ export default async function IndexPage({ params, searchParams }: Props) {
         include: INCLUDES_COUNT,
         locale,
       },
-      !!isPreviewEnabled
+      !!isPreviewEnabledFlag
     );
     pageEntry = entries[0] as ILandingPage | undefined;
   } catch (err) {
@@ -51,14 +52,14 @@ export default async function IndexPage({ params, searchParams }: Props) {
   }
 
   // Serialize the Contentful Entry to ensure only plain JSON crosses the server->client boundary
-  const pageData = JSON.parse(JSON.stringify(pageEntry)) as ILandingPage;
+  const pageData = mapLandingPageToProps(pageEntry);
 
   return (
     <div>
       {/* Render the landing page component with the fetched data */}
       <LivePreviewProviderWrapper
         locale={locale}
-        isPreviewEnabled={!!isPreviewEnabled}
+        isPreviewEnabled={!!isPreviewEnabledFlag}
       >
         <ContentfulLandingPage entry={pageData} />
       </LivePreviewProviderWrapper>
@@ -71,7 +72,7 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const { preview: isPreviewEnabled } = await searchParams;
+  const isPreviewEnabledFlag = isPreviewEnabled(await searchParams);
   const { locale, slug } = await params;
 
   let pageEntry: ILandingPage | undefined;
@@ -83,7 +84,7 @@ export async function generateMetadata(
         include: INCLUDES_COUNT,
         locale,
       },
-      !!isPreviewEnabled
+      !!isPreviewEnabledFlag
     );
     pageEntry = entries[0] as ILandingPage | undefined;
   } catch (err) {

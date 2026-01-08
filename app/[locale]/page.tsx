@@ -4,7 +4,7 @@ import ContentfulLandingPage from "@/features/contentful/components/contentful-l
 import { ILandingPage, LandingPageSkeleton } from "@/features/contentful/type"; // Types for Contentful landing page entries
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { extractContentfulAssetUrl } from "@/lib/utils";
+import { extractContentfulAssetUrl, isPreviewEnabled } from "@/lib/utils";
 import LivePreviewProviderWrapper from "@/features/contentful/live-preview-provider-wrapper";
 
 // Get the homepage slug from environment variables
@@ -21,7 +21,7 @@ type Props = {
 export default async function IndexPage({ params, searchParams }: Props) {
   const { locale } = await params;
 
-  const isPreviewEnabled = Boolean((await searchParams)?.preview || false);
+  const isPreviewEnabledFlag = isPreviewEnabled(await searchParams);
   // console.log("filters", await searchParams);
 
   // Fetch landing page data from Contentful based on the slug and locale
@@ -32,7 +32,7 @@ export default async function IndexPage({ params, searchParams }: Props) {
       include: INCLUDES_COUNT,
       locale,
     },
-    isPreviewEnabled
+    isPreviewEnabledFlag
   );
 
   // Get the first entry and cast it to ILandingPage type
@@ -46,7 +46,7 @@ export default async function IndexPage({ params, searchParams }: Props) {
       {/* Render the landing page component with the fetched data */}
       <LivePreviewProviderWrapper
         locale={locale}
-        isPreviewEnabled={!!isPreviewEnabled}
+        isPreviewEnabled={!!isPreviewEnabledFlag}
       >
         <ContentfulLandingPage entry={pageEntry} />
       </LivePreviewProviderWrapper>
@@ -60,10 +60,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const sp = await searchParams;
-  const isPreviewEnabled = Object.prototype.hasOwnProperty.call(
-    sp ?? {},
-    "preview"
-  );
+  const isPreviewEnabledFlag = isPreviewEnabled(sp);
   const { locale } = await params;
 
   // Fetch landing page data from Contentful based on the slug and locale
@@ -74,7 +71,7 @@ export async function generateMetadata(
       include: INCLUDES_COUNT,
       locale,
     },
-    !!isPreviewEnabled
+    !!isPreviewEnabledFlag
   );
 
   // Get the first entry and cast it to ILandingPage type

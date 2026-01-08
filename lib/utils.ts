@@ -17,6 +17,10 @@ export const extractContentfulAssetUrl = (image: Asset | null): string => {
   return "";
 };
 
+export function isPreviewEnabled(searchParams: { [key: string]: string | string[] | undefined }): boolean {
+  return "preview" in searchParams;
+}
+
 export const extractUrlFromTarget = (
   target: IExternalUrl | ILandingPage | IBlogPostPage
 ) => {
