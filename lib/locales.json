@@ -5,7 +5,40 @@
     "default": true,
     "fallbackCode": null,
     "sys": {
-      "id": "fallback-en-US",
+      "id": "032kYhFBTemSEy1r7IVBsF",
+      "type": "Locale",
+      "version": 1
+    }
+  },
+  {
+    "code": "ar",
+    "name": "Arabic",
+    "default": false,
+    "fallbackCode": "en-US",
+    "sys": {
+      "id": "032kYooc7wnipEiRtXX5UO",
+      "type": "Locale",
+      "version": 1
+    }
+  },
+  {
+    "code": "de",
+    "name": "German",
+    "default": false,
+    "fallbackCode": "en-US",
+    "sys": {
+      "id": "032kYooYRgFPrrR9Yy6QU8",
+      "type": "Locale",
+      "version": 1
+    }
+  },
+  {
+    "code": "es",
+    "name": "Spanish",
+    "default": false,
+    "fallbackCode": "en-US",
+    "sys": {
+      "id": "032kYoqeKrKQsp5vOKA8Vh",
       "type": "Locale",
       "version": 1
     }

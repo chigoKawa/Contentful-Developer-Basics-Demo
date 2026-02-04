@@ -29,11 +29,10 @@ export default function ThingImage({
   const fields = live?.fields as Partial<
     IImageWrapper["fields"] & IPexelsImageWrapper["fields"]
   > &
-    Partial<{ image?: Asset; url?: string; src?: string }>;
+    Partial<{ url?: string; src?: string }>;
 
   // Resolve a source either from a Contentful Asset, legacy url/src string, or the new Pexels payload
-  const asset = (fields?.asset ||
-    (fields as unknown as { image?: Asset })?.image) as Asset | undefined;
+  const asset = fields?.image as Asset | undefined;
 
   // Pexels support: prefer appropriately sized variant for the display mode
   const pexels = (fields as Partial<IPexelsImageWrapper["fields"]>)
@@ -68,14 +67,12 @@ export default function ThingImage({
   const resolved = asset ?? (pexelsUrl as string | undefined) ?? legacyUrl;
 
   const presentFieldId = asset
-    ? fields?.asset
-      ? "asset"
-      : "image"
+    ? "image"
     : pexelsUrl
     ? ("pexelsImage" as const)
     : legacyUrl
     ? ("url" as const)
-    : ("asset" as const);
+    : ("image" as const);
   const hero = display === "hero";
 
   return (

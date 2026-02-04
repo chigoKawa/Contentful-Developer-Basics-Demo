@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import NavBar from "@/features/layout/nav-bar";
-import { getI18nConfig, type Locale } from "@/i18n-config";
+import { getI18nConfig } from "@/i18n-config";
 import Footer from "@/features/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
 import AppProviders from "@/features/app-providers";
@@ -33,14 +33,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
 }>) {
-  const { locale } = await params;
+  // Root layout doesn't have access to locale params - use default
+  const { defaultLocale } = await getI18nConfig();
   return (
-    <html lang={locale}>
+    <html lang={defaultLocale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

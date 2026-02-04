@@ -18,13 +18,20 @@ const sizeMap = {
 
 // BaseButtonWrapper: A wrapper for rendering buttons dynamically based on Contentful-entry-provided data
 const BaseButtonWrapper = (entry: IBaseButton) => {
+  // Defensive: check for circular reference placeholder or missing fields
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if ((entry as any)?._circular || !entry?.fields || !entry?.sys?.id) {
+    // Skip rendering for circular references or invalid entries
+    return null;
+  }
+
   // Extract fields from the button entry
-  const variant = entry?.fields?.variant; // Defines button style (e.g., primary, secondary)
-  const size = entry?.fields?.size; // Defines button size (Small, Medium, Large)
+  const variant = entry?.fields?.variant ?? "Primary"; // Defines button style (e.g., primary, secondary)
+  const size = entry?.fields?.size ?? "Medium"; // Defines button size (Small, Medium, Large)
   const target = entry?.fields?.target; // Defines the target link
   const openInNewTab = entry?.fields?.openInNewTab; // Boolean to open in new tab or same tab
   const label = entry?.fields?.label; // Button label text
-  const targetUrl = extractUrlFromTarget(target); // Extract the actual URL from the target field
+  const targetUrl = target ? extractUrlFromTarget(target) : "#"; // Extract the actual URL from the target field
 
   const inspectorProps = useContentfulInspectorMode({ entryId: entry.sys.id });
 

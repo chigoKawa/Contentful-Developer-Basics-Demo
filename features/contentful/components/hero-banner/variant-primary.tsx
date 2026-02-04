@@ -26,11 +26,13 @@ const VariantPrimary: FC<IProps> = ({
           "relative flex flex-col lg:flex-row gap-4 justify-between mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-[450px] lg:items-center lg:px-8 "
         )}
       >
-        <img
-          src={image.url}
-          alt={""}
-          className={cn("lg:w-[50%]", alignRight ? "order-last" : "")}
-        />
+        {image?.url ? (
+          <img
+            src={image.url}
+            alt={image.alt || ""}
+            className={cn("lg:w-[50%]", alignRight ? "order-last" : "")}
+          />
+        ) : null}
         <div className="max-w-xl flex flex-col gap-4 text-center ltr:sm:text-left rtl:sm:text-right">
           {/* Hero title */}
           <h1

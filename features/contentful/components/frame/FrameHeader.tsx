@@ -10,8 +10,14 @@ import { ExperienceMapper } from "@ninetailed/experience.js-utils-contentful";
 
 function HeaderRender(entry: IFrameHeader) {
   const liveHeader = (useContentfulLiveUpdates(entry) as IFrameHeader) || entry;
-  const inspectorProps = useContentfulInspectorMode({ entryId: liveHeader.sys.id });
-  const f = liveHeader.fields;
+  const inspectorProps = useContentfulInspectorMode({ entryId: liveHeader?.sys?.id });
+  
+  // Defensive: fields may be undefined if entry is a circular reference placeholder
+  const f = liveHeader?.fields;
+  if (!f) {
+    return null;
+  }
+  
   const eyebrow = f.eyebrow as string | undefined;
 
   return (

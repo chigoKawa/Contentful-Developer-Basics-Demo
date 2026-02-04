@@ -8,11 +8,10 @@ import { extractContentfulAssetUrl } from "@/lib/utils";
 import { ICta } from "../../type";
 
 const CtaWrapper = (entry: ICta) => {
-  const title = entry?.fields?.title as string;
+  const title = (entry?.fields?.title as string) ?? "";
   const body = entry?.fields?.body;
-  const images = entry?.fields?.images;
-  //   const imageUrl = extractContentfulAssetUrl(heroImage);
-  const extractedImageUrls = images?.map((image) =>
+  const images = entry?.fields?.images ?? [];
+  const extractedImageUrls = images.map((image) =>
     extractContentfulAssetUrl(image)
   );
   const buttons = entry?.fields?.actionButtons;
@@ -33,7 +32,6 @@ const CtaWrapper = (entry: ICta) => {
   return (
     <div className="relative">
       <SimpleCta
-        // alignRight={variant === "Right Aligned"}
         entryId={entry.sys.id}
         title={title}
         body={body}

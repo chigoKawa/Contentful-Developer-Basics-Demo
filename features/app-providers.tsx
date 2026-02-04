@@ -4,7 +4,7 @@ import {
   NinetailedProvider,
   useNinetailed,
 } from "@ninetailed/experience.js-react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { NinetailedInsightsPlugin } from "@ninetailed/experience.js-plugin-insights";
 import { NinetailedPreviewPlugin } from "@ninetailed/experience.js-plugin-preview";
 import {
@@ -14,19 +14,21 @@ import {
 
 type Props = { children: ReactNode };
 
-// const isPreviewEnv = process.env.NODE_ENV !== "production";
-
-function PageEventOnMount() {
-  const { page } = useNinetailed();
+/**
+ * Tracks page views for Ninetailed profile updates.
+ * Based on official Ninetailed Next.js App Router example.
+ * @see https://github.com/ninetailed-inc/ninetailed-examples/blob/main/marketing-contentful-next-app/components/Client/TrackPage.tsx
+ */
+function TrackPage() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { page } = useNinetailed();
 
   useEffect(() => {
-    // fire a page event so the profile is up to date
-    // Using schema-less call to avoid validation errors until payload is confirmed
-    page?.({ path: pathname });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, pathname, searchParams?.toString()]);
+    // Call page() on every route change - this is required for Experience components to work
+    // The SDK handles profile creation/updates internally
+    void page();
+  }, [page, pathname]);
+
   return null;
 }
 
@@ -73,6 +75,15 @@ export default function AppProviders({ children }: Props) {
     return null;
   }
 
+  // Error handler for Ninetailed SDK errors (e.g., profile 404s)
+  const handleNinetailedError = (error: string | Error) => {
+    // Non-fatal: log but don't crash. Profile errors are common during hydration.
+    if (process.env.NODE_ENV !== "production") {
+      const message = typeof error === "string" ? error : error.message;
+      console.warn("[Ninetailed] SDK error (non-fatal):", message);
+    }
+  };
+
   return (
     <NinetailedProvider
       key={
@@ -86,9 +97,10 @@ export default function AppProviders({ children }: Props) {
       plugins={plugins}
       componentViewTrackingThreshold={2000}
       useSDKEvaluation={true}
+      onError={handleNinetailedError}
     >
       <Suspense fallback={null}>
-        <PageEventOnMount />
+        <TrackPage />
       </Suspense>
       {children}
     </NinetailedProvider>
